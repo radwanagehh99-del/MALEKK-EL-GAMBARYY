@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -5,20 +6,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ملك الجمبري | المأكولات البحرية</title>
 
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 
 :root {
-    --blue: #087BEE;
-    --navy: #103B70;
-    --red: #E53935;
-    --cream: #FFF8ED;
-    --yellow: #FFD166;
-    --white: #fff;
-    --text: #24415D;
+    --black: #171717;
+    --dark: #202020;
+    --dark2: #292929;
+    --gold: #D4AF62;
+    --gold-light: #F1D69A;
+    --gold-dark: #A77C32;
+    --cream: #F4EEE3;
+    --white: #FFFFFF;
+    --text: #F4EEE3;
 }
 
 *,
@@ -36,12 +38,10 @@ html {
 }
 
 body {
-    font-family: 'Alexandria', sans-serif !important;
-    font-weight: 500;
     background:
-        radial-gradient(circle at 10% 20%, #e5f7ff 0, transparent 30%),
-        radial-gradient(circle at 90% 70%, #fff0df 0, transparent 30%),
-        var(--cream);
+        radial-gradient(circle at 10% 20%, #D4AF6210, transparent 30%),
+        radial-gradient(circle at 90% 70%, #D4AF6208, transparent 30%),
+        var(--black);
     color: var(--text);
     overflow-x: hidden;
     line-height: 1.8;
@@ -58,13 +58,15 @@ a {
     margin: auto;
 }
 
+/* شريط التقدم */
+
 .progress {
     position: fixed;
     top: 0;
     right: 0;
     height: 4px;
     width: 0;
-    background: linear-gradient(90deg, var(--red), var(--yellow));
+    background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
     z-index: 3000;
 }
 
@@ -83,8 +85,8 @@ a {
     width: 130px;
     height: 85px;
     object-fit: contain;
-    opacity: .35;
-    filter: drop-shadow(0 5px 10px #103b7030);
+    opacity: .28;
+    filter: sepia(1) saturate(1.8) drop-shadow(0 5px 10px #D4AF6240);
 }
 
 .fish-one {
@@ -129,7 +131,7 @@ a {
     bottom: -30px;
     width: 13px;
     height: 13px;
-    border: 2px solid #087bee55;
+    border: 2px solid #D4AF6260;
     border-radius: 50%;
     pointer-events: none;
     z-index: 1;
@@ -155,14 +157,14 @@ nav, section, footer {
 /* NAVBAR */
 
 nav {
-    background: rgba(255,255,255,.94);
+    background: rgba(23,23,23,.97);
     backdrop-filter: blur(15px);
     position: sticky;
     top: 0;
     z-index: 1000;
     padding: 15px 0;
-    box-shadow: 0 5px 25px #103b7010;
-    border-bottom: 2px solid #e9f6ff;
+    box-shadow: 0 5px 25px #00000060;
+    border-bottom: 2px solid #D4AF6250;
 }
 
 .nav-content {
@@ -170,54 +172,61 @@ nav {
     justify-content: space-between;
     align-items: center;
     gap: 15px;
+    flex-wrap: wrap;
 }
 
 .logo {
     font-size: 26px;
     font-weight: 900;
-    color: var(--blue);
-    text-shadow: 2px 3px 8px #087bee20;
+    color: var(--gold);
+    text-shadow: 2px 3px 8px #D4AF6240;
+    white-space: nowrap;
 }
 
 .logo span {
-    color: var(--red);
+    color: var(--gold-light);
 }
 
 nav ul {
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
-    gap: 25px;
+    justify-content: center;
+    gap: 12px 16px;
 }
 
 nav ul a {
-    color: var(--navy);
-    font-size: 17px;
+    color: var(--cream);
+    font-size: 13px;
     font-weight: 800;
     transition: .3s;
+    white-space: nowrap;
 }
 
 nav ul a:hover {
-    color: var(--red);
+    color: var(--gold);
 }
 
 .order-btn,
 .main-btn {
     display: inline-block;
-    color: white;
-    background: linear-gradient(135deg, var(--red), #FF7043);
-    padding: 12px 25px;
+    color: var(--black);
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    padding: 12px 20px;
     border-radius: 35px;
     font-weight: 900;
-    font-size: 16px;
-    box-shadow: 0 8px 20px #e5393530;
+    font-size: 14px;
+    box-shadow: 0 8px 20px #D4AF6230;
     transition: .35s;
     position: relative;
     overflow: hidden;
+    white-space: nowrap;
 }
 
 .order-btn:hover,
 .main-btn:hover {
     transform: translateY(-5px);
+    box-shadow: 0 12px 25px #D4AF6250;
 }
 
 .main-btn::before,
@@ -228,7 +237,7 @@ nav ul a:hover {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: #ffffff35;
+    background: #ffffff50;
     transform: skewX(-25deg);
     transition: .5s;
 }
@@ -247,7 +256,10 @@ nav ul a:hover {
     padding: 75px 0;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(120deg, #D8F4FF, #FFF3DD, #FFE2D8);
+    background:
+        radial-gradient(circle at 15% 30%, #D4AF6218, transparent 35%),
+        linear-gradient(120deg, #171717, #292929, #1C1C1C);
+    border-bottom: 1px solid #D4AF6230;
 }
 
 .hero-content {
@@ -264,25 +276,25 @@ nav ul a:hover {
 }
 
 .hero-text small {
-    color: var(--red);
+    color: var(--gold);
     font-weight: 900;
     font-size: 18px;
 }
 
 .hero h1 {
-    color: var(--navy);
+    color: var(--cream);
     font-size: clamp(38px, 6vw, 68px);
     line-height: 1.5;
     font-weight: 900;
-    text-shadow: 2px 4px 10px #103b7010;
+    text-shadow: 2px 4px 10px #00000060;
 }
 
 .hero h1 span {
-    color: var(--blue);
+    color: var(--gold);
 }
 
 .hero p {
-    color: #637D91;
+    color: #D0C5B2;
     font-size: 19px;
     line-height: 2;
     font-weight: 500;
@@ -300,10 +312,10 @@ nav ul a:hover {
     max-width: 360px;
     width: 100%;
     margin: auto;
-    border: 10px solid white;
+    border: 8px solid var(--gold);
     border-radius: 45% 45% 25px 25px;
     overflow: hidden;
-    box-shadow: 0 25px 60px #087bee30;
+    box-shadow: 0 25px 60px #D4AF6230;
     animation: photoFloat 5s ease-in-out infinite;
 }
 
@@ -318,17 +330,18 @@ nav ul a:hover {
 .intro {
     text-align: center;
     padding: 75px 0 40px;
+    background: #1D1D1D;
 }
 
 .intro h2 {
     font-size: 36px;
     font-weight: 900;
-    color: var(--blue);
+    color: var(--gold);
     margin-bottom: 12px;
 }
 
 .intro p {
-    color: #81909B;
+    color: #C9BFAF;
     font-size: 18px;
     line-height: 2;
     font-weight: 500;
@@ -344,15 +357,15 @@ nav ul a:hover {
 .section-title h2 {
     font-size: 38px;
     font-weight: 900;
-    color: var(--navy);
+    color: var(--gold);
 }
 
 .section-title span {
-    color: var(--red);
+    color: var(--gold-light);
 }
 
 .section-title p {
-    color: #8294A0;
+    color: #BEB3A2;
     font-size: 17px;
     margin-top: 8px;
 }
@@ -360,7 +373,8 @@ nav ul a:hover {
 /* GALLERY */
 
 .gallery {
-    padding: 35px 0 85px;
+    padding: 65px 0 85px;
+    background: #171717;
 }
 
 .gallery-grid {
@@ -373,9 +387,9 @@ nav ul a:hover {
     height: 290px;
     overflow: hidden;
     border-radius: 25px;
-    background: #eee;
-    border: 5px solid white;
-    box-shadow: 0 10px 30px #103b7012;
+    background: #292929;
+    border: 4px solid var(--gold);
+    box-shadow: 0 10px 30px #00000050;
     transition: .45s;
     position: relative;
 }
@@ -389,6 +403,7 @@ nav ul a:hover {
 
 .gallery-card:hover {
     transform: translateY(-12px);
+    box-shadow: 0 15px 35px #D4AF6240;
 }
 
 .gallery-card:hover img {
@@ -403,10 +418,10 @@ nav ul a:hover {
     width: 100%;
     padding: 15px 0;
     text-align: center;
-    color: white;
+    color: var(--gold-light);
     font-weight: 900;
     font-size: 18px;
-    background: linear-gradient(transparent, #103b70b5);
+    background: linear-gradient(transparent, #000000DD);
     opacity: 0;
     transition: .4s;
 }
@@ -418,8 +433,11 @@ nav ul a:hover {
 /* MENU */
 
 .menu-section {
-    background: linear-gradient(180deg, #E9F8FF, #F4FBFF);
+    background:
+        radial-gradient(circle at top right, #D4AF6210, transparent 35%),
+        #202020;
     padding: 85px 0;
+    scroll-margin-top: 150px;
 }
 
 .menu-heading {
@@ -430,11 +448,11 @@ nav ul a:hover {
 .menu-heading h2 {
     font-size: 42px;
     font-weight: 900;
-    color: var(--blue);
+    color: var(--gold);
 }
 
 .menu-heading p {
-    color: #8294A0;
+    color: #C5B9A7;
     font-size: 18px;
     font-weight: 500;
     margin-top: 10px;
@@ -448,27 +466,28 @@ nav ul a:hover {
 
 .menu-box {
     background:
-        linear-gradient(white, white) padding-box,
-        linear-gradient(135deg, #087BEE, #FFD166, #E53935) border-box;
+        linear-gradient(#292929, #292929) padding-box,
+        linear-gradient(135deg, #A77C32, #F1D69A, #D4AF62) border-box;
     border: 2px solid transparent;
     border-radius: 25px;
     padding: 27px;
-    box-shadow: 0 10px 30px #103b7010;
+    box-shadow: 0 10px 30px #00000035;
     position: relative;
     overflow: hidden;
     transition: .4s;
+    scroll-margin-top: 150px;
 }
 
 .menu-box:hover {
     transform: translateY(-7px);
-    box-shadow: 0 18px 35px #087bee20;
+    box-shadow: 0 18px 35px #D4AF6230;
 }
 
 .menu-box h3 {
     font-size: 27px;
     font-weight: 900;
-    color: var(--blue);
-    border-bottom: 2px solid #FFE2D5;
+    color: var(--gold);
+    border-bottom: 2px solid #D4AF6250;
     padding-bottom: 13px;
     margin-bottom: 15px;
 }
@@ -479,37 +498,38 @@ nav ul a:hover {
     align-items: center;
     gap: 12px;
     padding: 13px 8px;
-    border-bottom: 1px dashed #DCE9EF;
+    border-bottom: 1px dashed #D4AF6230;
     border-radius: 10px;
     transition: .3s;
 }
 
 .menu-item:hover {
-    background: #EDF8FF;
+    background: #D4AF6212;
     padding-right: 17px;
 }
 
 .menu-item .name {
     font-weight: 700;
     font-size: 17px;
-    color: var(--text);
+    color: var(--cream);
     flex: 1;
     transition: .3s;
 }
 
 .menu-item:hover .name {
-    color: var(--blue);
+    color: var(--gold);
 }
 
 .price {
-    color: var(--red);
+    color: var(--gold-light);
     font-weight: 900;
     white-space: normal;
     font-size: 16px;
-    background: #FFF0E9;
+    background: #D4AF6220;
     padding: 5px 12px;
     border-radius: 20px;
     text-align: center;
+    border: 1px solid #D4AF6240;
 }
 
 /* تفاصيل أوزان الأسماك */
@@ -525,18 +545,20 @@ nav ul a:hover {
 
 .weight {
     display: inline-block;
-    background: #FFF0E9;
-    color: var(--red);
+    background: #D4AF6220;
+    color: var(--gold-light);
     font-size: 14px;
     font-weight: 800;
     padding: 5px 9px;
     border-radius: 15px;
     white-space: nowrap;
+    border: 1px solid #D4AF6240;
 }
 
 .menu-note {
-    background: #FFF2E5;
-    color: #B35D35;
+    background: #D4AF621A;
+    color: var(--gold-light);
+    border: 1px solid #D4AF6250;
     border-radius: 12px;
     padding: 12px;
     margin-top: 15px;
@@ -548,17 +570,18 @@ nav ul a:hover {
 
 .special {
     padding: 80px 0;
+    background: #171717;
 }
 
 .special-card {
     text-align: center;
-    color: white;
+    color: var(--black);
     padding: 55px 20px;
     border-radius: 35px;
     background:
-        radial-gradient(circle at top right, #ffffff30, transparent 40%),
-        linear-gradient(120deg, #087BEE, #0754A9, #12A7B2);
-    box-shadow: 0 20px 45px #087bee30;
+        radial-gradient(circle at top right, #ffffff40, transparent 40%),
+        linear-gradient(120deg, #A77C32, #D4AF62, #F1D69A);
+    box-shadow: 0 20px 45px #D4AF6230;
     position: relative;
     overflow: hidden;
 }
@@ -568,7 +591,7 @@ nav ul a:hover {
     content: "🫧";
     position: absolute;
     font-size: 65px;
-    opacity: .15;
+    opacity: .2;
 }
 
 .special-card::before {
@@ -584,19 +607,21 @@ nav ul a:hover {
 .special-card h2 {
     font-size: 38px;
     font-weight: 900;
+    color: #171717;
 }
 
 .special-card p {
     font-size: 19px;
     line-height: 2;
-    font-weight: 500;
+    font-weight: 600;
     margin: 15px 0 25px;
+    color: #302719;
 }
 
 .special-card a {
     display: inline-block;
-    background: white;
-    color: var(--blue);
+    background: #171717;
+    color: var(--gold-light);
     padding: 13px 35px;
     border-radius: 35px;
     font-size: 17px;
@@ -605,17 +630,18 @@ nav ul a:hover {
 }
 
 .special-card a:hover {
-    background: var(--yellow);
-    color: var(--navy);
+    background: #393939;
+    color: white;
     transform: scale(1.07);
 }
 
 /* FOOTER */
 
 footer {
-    background: linear-gradient(135deg, #103B70, #0754A9);
+    background: linear-gradient(135deg, #111111, #252525);
     color: white;
     padding: 55px 0 20px;
+    border-top: 2px solid #D4AF6250;
 }
 
 .footer-content {
@@ -626,7 +652,7 @@ footer {
 }
 
 footer h3 {
-    color: var(--yellow);
+    color: var(--gold);
     margin-bottom: 15px;
     font-size: 24px;
     font-weight: 900;
@@ -635,12 +661,12 @@ footer h3 {
 footer p {
     font-size: 17px;
     line-height: 2.2;
-    color: #D8E9F5;
+    color: #D0C5B2;
     font-weight: 500;
 }
 
 footer a {
-    color: #D8E9F5;
+    color: #E4D7C2;
     display: block;
     margin: 12px 0;
     font-size: 18px;
@@ -649,15 +675,15 @@ footer a {
 }
 
 footer a:hover {
-    color: var(--yellow);
+    color: var(--gold);
     transform: translateX(-5px);
 }
 
 .footer-bottom {
-    border-top: 1px solid #ffffff25;
+    border-top: 1px solid #D4AF6240;
     padding-top: 20px;
     text-align: center;
-    color: #C6DCE0;
+    color: #C9BFAF;
     font-size: 15px;
     font-weight: 500;
 }
@@ -701,18 +727,18 @@ footer a:hover {
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background: var(--blue);
-    color: white;
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+    color: var(--black);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 998;
-    box-shadow: 0 5px 20px #087bee40;
+    box-shadow: 0 5px 20px #D4AF6240;
     transition: .3s;
 }
 
 .back-to-top:hover {
-    background: var(--red);
+    background: var(--gold-light);
     transform: translateY(-5px);
 }
 
@@ -741,8 +767,30 @@ footer a:hover {
 
 /* RESPONSIVE */
 
+@media (max-width: 1100px) {
+    .nav-content {
+        justify-content: center;
+    }
+
+    nav ul {
+        order: 3;
+        width: 100%;
+    }
+}
+
 @media (max-width: 850px) {
     nav ul {
+        display: flex;
+        width: 100%;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 10px 2px;
+        scrollbar-width: none;
+        order: 3;
+    }
+
+    nav ul::-webkit-scrollbar {
         display: none;
     }
 
@@ -906,8 +954,8 @@ footer a:hover {
         animation: none;
     }
 }
-</style>
 
+</style>
 </head>
 
 <body>
@@ -935,13 +983,23 @@ footer a:hover {
 <div class="logo">ملك <span>الجمبري</span> 🦐</div>
 
 <ul>
-<li><a href="#home">الرئيسية</a></li>
-<li><a href="#gallery">صور المطعم</a></li>
-<li><a href="#menu">المنيو</a></li>
-<li><a href="#contact">اتصل بنا</a></li>
+<li><a href="#rice">الأرز</a></li>
+<li><a href="#sandwiches">السندوتشات</a></li>
+<li><a href="#meals">الوجبات</a></li>
+<li><a href="#fish">الأسماك</a></li>
+<li><a href="#pasta">المكرونات</a></li>
+<li><a href="#casseroles">الطواجن</a></li>
+<li><a href="#grilled">المشويات</a></li>
+<li><a href="#molokhia">الملوخية</a></li>
+<li><a href="#salads">السلطات</a></li>
+<li><a href="#extras">الإضافات</a></li>
 </ul>
 
-<a href="#menu" class="order-btn">شوف المنيو</a>
+<a href="https://wa.me/201111142178"
+target="_blank" rel="noopener" class="order-btn">
+<i class="fa-brands fa-whatsapp"></i>
+01111142178
+</a>
 
 </div>
 </nav>
@@ -1024,168 +1082,189 @@ footer a:hover {
 
 <div class="menu-grid">
 
-<div class="menu-box reveal">
+<!-- أطباق الأرز -->
+
+<div class="menu-box reveal" id="rice">
 <h3>🍚 أطباق الأرز</h3>
 <div class="menu-item"><span class="name">طبق أرز سادة</span><span class="price">15\25</span></div>
-<div class="menu-item"><span class="name">طبق أرز بالجمبري صغير</span><span class="price">65 </span></div>
+<div class="menu-item"><span class="name">طبق أرز بالجمبري صغير</span><span class="price">65</span></div>
 <div class="menu-item"><span class="name">طبق أرز بالجمبري كبير</span><span class="price">85 \100</span></div>
-<div class="menu-item"><span class="name">أرز بالجمبري صغير + فيليه </span><span class="price">65 </span></div>
-<div class="menu-item"><span class="name">أرز بالجمبري كبير + فيليه </span><span class="price">85\100</span></div>
-<div class="menu-item"><span class="name">أرز بالجمبري + فيليه + سبيط</span><span class="price">100\130</span></div>
+<div class="menu-item"><span class="name">أرز بالجمبري صغير + فيليه</span><span class="price">65</span></div>
+<div class="menu-item"><span class="name">أرز بالجمبري كبير + فيليه</span><span class="price">85\100</span></div>
+<div class="menu-item"><span class="name">أرز بالجمبري + فيليه + سبيط (ميكس)</span><span class="price">100\130</span></div>
 <div class="menu-item"><span class="name">طبق أرز بالفيليه</span><span class="price">65\85</span></div>
-<div class="menu-item"><span class="name">طبق أرز بالسبيط</span><span class="price">85 </span></div>
-<div class="menu-item"><span class="name">أرز بالجمبري والسبيط كبير</span><span class="price">85 </span></div>
+<div class="menu-item"><span class="name">طبق أرز بالسبيط</span><span class="price">85</span></div>
+<div class="menu-item"><span class="name">أرز بالجمبري والسبيط كبير</span><span class="price">100\85</span></div>
 </div>
 
+<!-- السندوتشات -->
 
-<div class="menu-box reveal">
+<div class="menu-box reveal" id="sandwiches">
 <h3>🥪 السندوتشات</h3>
-<div class="menu-item"><span class="name">رغيف جمبري صغير</span><span class="price">35 </span></div>
+<div class="menu-item"><span class="name">رغيف جمبري صغير</span><span class="price">35</span></div>
 <div class="menu-item"><span class="name">رغيف جمبري كبير</span><span class="price">50 \60</span></div>
-<div class="menu-item"><span class="name">رغيف فيليه</span><span class="price">35 </span></div>
-<div class="menu-item"><span class="name">رغيف سبيط</span><span class="price">40  \50</span></div>
-<div class="menu-item"><span class="name">رغيف مشكل</span><span class="price">45  \60</span></div>
-
+<div class="menu-item"><span class="name">رغيف فيليه</span><span class="price">35</span></div>
+<div class="menu-item"><span class="name">رغيف سبيط</span><span class="price">45 \50</span></div>
+<div class="menu-item"><span class="name">رغيف مشكل</span><span class="price">50 \60</span></div>
 </div>
 
-<div class="menu-box reveal">
+<!-- الوجبات -->
+
+<div class="menu-box reveal" id="meals">
 <h3>🍽️ الوجبات</h3>
-<div class="menu-item"><span class="name">ثمن جمبري صغير + أرز + سلطة + عيش </span><span class="price">80 ج</span></div>
+<div class="menu-item"><span class="name">ثمن جمبري صغير + أرز + سلطة + عيش</span><span class="price">80 ج</span></div>
 <div class="menu-item"><span class="name">ثمن جمبري كبير + أرز + سلطة + عيش</span><span class="price">130 ج</span></div>
 <div class="menu-item"><span class="name">ثمن فيليه + أرز + سلطة + عيش</span><span class="price">65 ج</span></div>
 <div class="menu-item"><span class="name">ثمن سبيط + أرز + سلطة + عيش</span><span class="price">105 ج</span></div>
 <div class="menu-item"><span class="name">وجبة بلطي مقلي / مشوي + أرز + سلطة + عيش</span><span class="price">90 ج</span></div>
 <div class="menu-item"><span class="name">شوربة عادية / مخليّة</span><span class="price">85 / 105 ج</span></div>
-
+<div class="menu-item"><span class="name">مياه شوربة</span><span class="price">15ج</span></div>
 </div>
 
+<!-- الأسماك -->
 
-<div class="menu-box reveal">
-    <h3>🐟 الأسماك</h3>
-    
-    <div class="menu-item">
-        <span class="name">بلطي</span>
-        <span class="price">حسب سعر اليوم</span>
-    </div>
-    
-    <div class="menu-item">
-        <span class="name">مكرونة</span>
-        <span class="price">حسب سعر اليوم</span>
-    </div>
-    
-    <div class="menu-item">
-        <span class="name">فيليه</span>
-        <span class="weights-detail">
-            <span class="weight">(ثمن: 50)</span>  
-            <span class="weight">(ربع: 100)</span> 
-            <span class="weight">(نص: 200)</span> 
-            <span class="weight">(كيلو: 400ج)</span>
-        </span>
-    </div>
-    
-    <div class="menu-item">
-        <span class="name">سبيط</span>
-        <span class="weights-detail">
-            <span class="weight">( ثمن: 90)</span> 
-            <span class="weight">( ربع: 180)</span> 
-            <span class="weight">(نص : 350)</span> 
-            <span class="weight">(كيلو:700)</span>
-        </span>
-    </div>
-    
-    <div class="menu-item">
-        <span class="name">كابوريا</span>
-        <span class="weights-detail">
-            <span class="weight">(ربع:65)</span> 
-            <span class="weight">(نص: 125)</span> 
-            <span class="weight">(كيلو: 250)</span>
-        </span>
-    </div>
-    
-    <div class="menu-item">
-        <span class="name">جمبري صغير</span>
-        <span class="weights-detail">
-            <span class="weight">(ثمن:65) </span> 
-            <span class="weight">(ربع: 125)</span> 
-            <span class="weight">(نص: 250 ) </span>
-            <span class="weight">(كيلو: 500 )</span>
-        </span>
-    </div>
-    
-    <div class="menu-item">
-        <span class="name">جمبري كبير</span>
-        <span class="weights-detail">
-            <span class="weight">(ثمن: 115) </span>  
-            <span class="weight">(ربع :225)</span> 
-            <span class="weight">(نص:450) </span> 
-            <span class="weight"> (كيلو:900)</span>
-        </span>
-    </div>
-    
-    <div class="menu-note">أسعار الأسماك حسب سعر اليوم والكميات.</div>
+<div class="menu-box reveal" id="fish">
+<h3>🐟 الأسماك</h3>
+
+<div class="menu-item">
+<span class="name">بلطي</span>
+<span class="price">حسب سعر اليوم</span>
 </div>
 
-<div class="menu-box reveal">
+<div class="menu-item">
+<span class="name">مكرونة</span>
+<span class="price">حسب سعر اليوم</span>
+</div>
+
+<div class="menu-item">
+<span class="name">فيليه</span>
+<span class="weights-detail">
+<span class="weight">(ثمن: 50)</span>
+<span class="weight">(ربع: 100)</span>
+<span class="weight">(نص: 200)</span>
+<span class="weight">(كيلو: 400ج)</span>
+</span>
+</div>
+
+<div class="menu-item">
+<span class="name">سبيط</span>
+<span class="weights-detail">
+<span class="weight">(ثمن: 90)</span>
+<span class="weight">(ربع: 180)</span>
+<span class="weight">(نص: 350)</span>
+<span class="weight">(كيلو:700)</span>
+</span>
+</div>
+
+<div class="menu-item">
+<span class="name">كابوريا</span>
+<span class="weights-detail">
+<span class="weight">(ربع:65)</span>
+<span class="weight">(نص: 125)</span>
+<span class="weight">(كيلو: 250)</span>
+</span>
+</div>
+
+<div class="menu-item">
+<span class="name">جمبري صغير</span>
+<span class="weights-detail">
+<span class="weight">(ثمن:65)</span>
+<span class="weight">(ربع: 125)</span>
+<span class="weight">(نص: 250)</span>
+<span class="weight">(كيلو: 500)</span>
+</span>
+</div>
+
+<div class="menu-item">
+<span class="name">جمبري كبير</span>
+<span class="weights-detail">
+<span class="weight">(ثمن: 115)</span>
+<span class="weight">(ربع:225)</span>
+<span class="weight">(نص:450)</span>
+<span class="weight">(كيلو:900)</span>
+</span>
+</div>
+
+<div class="menu-note">أسعار الأسماك حسب سعر اليوم والكميات.</div>
+</div>
+
+<!-- المكرونات -->
+
+<div class="menu-box reveal" id="pasta">
 <h3>🍝 المكرونات</h3>
 <div class="menu-item"><span class="name">طاجن مكرونة أحمر صوص بالجمبري</span><span class="price">130 / 160 ج</span></div>
 <div class="menu-item"><span class="name">طاجن مكرونة أبيض صوص بالجمبري</span><span class="price">130 / 160 ج</span></div>
 <div class="menu-item"><span class="name">طاجن مكرونة سي فود مشكل</span><span class="price">130 / 160 ج</span></div>
 </div>
 
-<div class="menu-box reveal">
+<!-- الطواجن -->
+
+<div class="menu-box reveal" id="casseroles">
 <h3>🥘 الطواجن</h3>
-<div class="menu-item"><span class="name">طاجن جمبري بقشره</span><span class="price"> ( ربع225 , نص450  )</span></div>
-<div class="menu-item"><span class="name">طاجن جمبري لحم</span><span class="price"> ( ربع225 , نص450)</span></div>
-<div class="menu-item"><span class="name">طاجن فيليه</span><span class="price">(ربع 100,نص 200)</span></div>
-<div class="menu-item"><span class="name">طاجن سبيط مشوي</span><span class="price">(ربع 180 ,نص 360)</span></div>
-<div class="menu-item"><span class="name">طاجن ميكس لحم</span><span class="price">(ربع 225 ,نص 450)</span></div>
+<div class="menu-item"><span class="name">طاجن جمبري بقشره</span><span class="price">(ربع225 , نص450)</span></div>
+<div class="menu-item"><span class="name">طاجن جمبري لحم</span><span class="price">(ربع225 , نص450)</span></div>
+<div class="menu-item"><span class="name">طاجن فيليه</span><span class="price">(ربع 100, نص 200)</span></div>
+<div class="menu-item"><span class="name">طاجن سبيط مشوي</span><span class="price">(ربع 180 , نص 360)</span></div>
+<div class="menu-item"><span class="name">طاجن ميكس لحم</span><span class="price">(ربع 225 , نص 450)</span></div>
 <div class="menu-item"><span class="name">طاجن ثعابين</span><span class="price">سعر اليوم</span></div>
 </div>
 
-<div class="menu-box reveal">
+<!-- المشويات -->
+
+<div class="menu-box reveal" id="grilled">
 <h3>🔥 المشويات</h3>
-<div class="menu-item"><span class="name">جمبري مشوي كبير بالخلطة</span><span class="price">(ربع 225,نص 450,كيلو 900)</span></div>
-<div class="menu-item"><span class="name">جمبري مشوي جامبو بالخلطة</span><span class="price">(ربع:370,نص:750,كيلو:1500)</span></div>
-<div class="menu-item"><span class="name">جمبري مشوي خلطة</span><span class="price"></span>(ربع 225,نص 450,كيلو 900)</div>
-<div class="menu-item"><span class="name">جمبري مشوي  بترفلاي</span><span class="price">(ربع 225,نص 450,كيلو 900)</span></div>
-<div class="menu-item"><span class="name">جمبري / سبيط مشوي فاهيتا لحم</span><span class="price">(ربع:220,نص:450,كيلو:900)</span></div>
-<div class="menu-item"><span class="name">جندوفلي إسكندراني</span><span class="price">(ربع:50,نص:100,كيلو:200)</span></div>
-<div class="menu-item"><span class="name">كابوريا مشوي جريل</span><span class="price">(ربع:65,نص:125,كيلو:250)</span></div>
-<div class="menu-item"><span class="name">فيليه مشوي كباب</span><span class="price">(ربع:100,نص:200, كيلو:400)</span></div>
+<div class="menu-item"><span class="name">جمبري مشوي كبير بالخلطة</span><span class="price">(ربع 225, نص 450, كيلو 900)</span></div>
+<div class="menu-item"><span class="name">جمبري مشوي جامبو بالخلطة</span><span class="price">(ربع:370, نص:750, كيلو:1500)</span></div>
+<div class="menu-item"><span class="name">جمبري مشوي خلطة</span><span class="price">(ربع 225, نص 450, كيلو 900)</span></div>
+<div class="menu-item"><span class="name">جمبري مشوي بترفلاي</span><span class="price">(ربع 225, نص 450, كيلو 900)</span></div>
+<div class="menu-item"><span class="name">جمبري / سبيط مشوي فاهيتا لحم</span><span class="price">(ربع:220, نص:450, كيلو:900)</span></div>
+<div class="menu-item"><span class="name">جندوفلي إسكندراني</span><span class="price">(ربع:50, نص:100, كيلو:200)</span></div>
+<div class="menu-item"><span class="name">كابوريا مشوي جريل</span><span class="price">(ربع:65, نص:125, كيلو:250)</span></div>
+<div class="menu-item"><span class="name">فيليه مشوي كباب</span><span class="price">(ربع:100, نص:200, كيلو:400)</span></div>
 </div>
 
-<div class="menu-box reveal">
+<!-- الملوخية -->
+
+<div class="menu-box reveal" id="molokhia">
 <h3>🥣 الملوخية</h3>
 <div class="menu-item"><span class="name">ملوخية بالجمبري لحم</span><span class="price">85 / 105 ج</span></div>
-<div class="menu-item"><span class="name">شوربة حمراء جمبري بقشره أو لحم</span><span class="price">100 / 120 ج</span></div>
+<div class="menu-item"><span class="name">شوربة حمراء جمبري لحم</span><span class="price">100 ج</span></div>
+<div class="menu-item"><span class="name">شوربة حمراء جمبري بقشره</span><span class="price">120 ج</span></div>
 </div>
 
-<div class="menu-box reveal">
+<!-- السلطات والإضافات -->
+
+<div class="menu-box reveal" id="salads">
 <h3>🥗 السلطات والإضافات</h3>
-<div class="menu-item"><span class="name"> سلطة بلدي</span> <span class="price">15 ج</span></div>
+<div class="menu-item"><span class="name">سلطة بلدي</span><span class="price">15 ج</span></div>
 <div class="menu-item"><span class="name">بابا غنوج</span><span class="price">15 ج</span></div>
 <div class="menu-item"><span class="name">طماطم متبلة</span><span class="price">15 ج</span></div>
 <div class="menu-item"><span class="name">مياه معدنية</span><span class="price">10 / 15 ج</span></div>
 <div class="menu-item"><span class="name">كانز</span><span class="price">20 ج</span></div>
 </div>
 
-<div class="menu-box reveal">
+<!-- إضافات الأرز -->
+
+<div class="menu-box reveal" id="extras">
 <h3>🍚 إضافات الأرز</h3>
 <div class="menu-item"><span class="name">طبق أرز سي فود</span><span class="price">120 ج</span></div>
 <div class="menu-item"><span class="name">طبق أرز خلطة</span><span class="price">30 ج</span></div>
 </div>
 
-<div class="menu-box reveal">
+<!-- سندوتشات إضافية -->
+
+<div class="menu-box reveal" id="extra-sandwiches">
 <h3>🥪 سندوتشات إضافية</h3>
 <div class="menu-item"><span class="name">رغيف حواوشي</span><span class="price">50 \ 60 ج</span></div>
-<div class="menu-item"><span class="name">رغيف حواوشي ميكس</span><span class="price"> 50 \60 ج</span></div>
-<div class=" menu-item"><span class="name">رغيف جمبري مشوي</span><span class="price">50  \60 ج</span></div>
-<div class=" menu-item"><span class="name">رغيف فيليه مشوي</span><span class="price"> 50 \ 60 ج</span></div>
-<div class=" menu-item"><span class="name"> رغيف سبيط مشوي</span><span class="price">50 \60 ج</span></div>
-<div class="menu-item"><span class="name">وجبة ميكس جريل مشوي</span><span class="price ">200 ج</span>
-</div>
+<div class="menu-item"><span class="name">رغيف حواوشي ميكس</span><span class="price">50 \60 ج</span></div>
+<div class="menu-item"><span class="name">رغيف جمبري مشوي</span><span class="price">50 \60 ج</span></div>
+<div class="menu-item"><span class="name">رغيف فيليه مشوي</span><span class="price">50 \ 60 ج</span></div>
+<div class="menu-item"><span class="name">رغيف سبيط مشوي</span><span class="price">50 \60 ج</span></div>
+<div class="menu-item"><span class="name">وجبة ميكس جريل مشوي</span><span class="price">200 ج</span></div>
 <div class="menu-item"><span class="name">وجبة جمبري بقشره مشوي</span><span class="price">225ج</span></div>
+</div>
 
+</div>
 </div>
 </section>
 
@@ -1221,7 +1300,7 @@ footer a:hover {
 
 <div>
 <h3>عنوان المطعم</h3>
-<p>55 (شارع مصطفي حافظ عين شمش)</p>
+<p>55 شارع مصطفى حافظ، عين شمس</p>
 </div>
 
 </div>
@@ -1236,7 +1315,7 @@ footer a:hover {
 <!-- WHATSAPP -->
 
 <a class="whatsapp-float"
-href="https://wa.me/201110899667"
+href="https://wa.me/201111142178"
 target="_blank"
 rel="noopener"
 aria-label="تواصل عبر واتساب">
@@ -1254,35 +1333,36 @@ aria-label="تواصل عبر واتساب">
 /* شريط تقدم الصفحة */
 
 window.addEventListener('scroll',()=>{
-const total=document.documentElement.scrollHeight-window.innerHeight;
-const progress=total>0?(window.scrollY/total)*100:0;
-document.getElementById('progress').style.width=progress+'%';
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = total > 0 ? (window.scrollY / total) * 100 : 0;
+    document.getElementById('progress').style.width = progress + '%';
 });
 
 /* ظهور العناصر عند التمرير */
 
 if ('IntersectionObserver' in window) {
 
-const revealObserver=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add('show');
-revealObserver.unobserve(entry.target);
-}
-});
-},{threshold:.12});
+    const revealObserver = new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting){
+                entry.target.classList.add('show');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    },{threshold:.12});
 
-document.querySelectorAll('.reveal').forEach(el=>{
-revealObserver.observe(el);
-});
+    document.querySelectorAll('.reveal').forEach(el=>{
+        revealObserver.observe(el);
+    });
 
 } else {
-document.querySelectorAll('.reveal').forEach(el=>{
-el.classList.add('show');
-});
+    document.querySelectorAll('.reveal').forEach(el=>{
+        el.classList.add('show');
+    });
 }
 
 </script>
 
 </body>
 </html>
+
