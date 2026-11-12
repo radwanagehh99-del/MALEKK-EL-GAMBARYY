@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -635,6 +634,50 @@ nav ul a:hover {
     transform: scale(1.07);
 }
 
+
+/* Developer credit */
+.developer-credit {
+    margin-top: 18px;
+    padding: 15px 12px 4px;
+    border-top: 1px solid #D4AF6240;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    text-align: center;
+}
+.developer-credit .developer-name {
+    margin: 0;
+    color: #E5C477;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 0 12px #D4AF6245;
+    direction: ltr;
+}
+.developer-credit .developer-title {
+    flex-basis: 100%;
+    margin: 0;
+    color: #F5E8C9;
+    font-size: 12px;
+    font-weight: 600;
+}
+.developer-credit .developer-handle {
+    display: inline-block;
+    margin: 0;
+    color: #D4AF62;
+    font-size: 13px;
+    direction: ltr;
+    text-decoration: none;
+    transition: .25s;
+}
+.developer-credit .developer-handle:hover {
+    color: #F5E8C9;
+    text-decoration: underline;
+}
+
 /* FOOTER */
 
 footer {
@@ -953,6 +996,139 @@ footer a:hover {
     .whatsapp-float {
         animation: none;
     }
+}
+
+
+
+/* سلة المشتريات */
+.menu-item {
+    flex-wrap: wrap;
+}
+.add-cart-btn {
+    border: 1px solid var(--gold);
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--black);
+    border-radius: 20px;
+    padding: 7px 13px;
+    font-size: 12px;
+    font-weight: 900;
+    cursor: pointer;
+    transition: .25s;
+    white-space: nowrap;
+}
+.add-cart-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px #D4AF6240;
+}
+.cart-floating {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 2000;
+    width: 62px;
+    height: 62px;
+    border: 2px solid var(--gold-light);
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
+    color: var(--black);
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 8px 25px #D4AF6260;
+}
+.cart-count {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    min-width: 23px;
+    height: 23px;
+    padding: 0 5px;
+    border-radius: 20px;
+    background: #c62828;
+    color: white;
+    font-size: 12px;
+    display: grid;
+    place-items: center;
+    border: 2px solid var(--black);
+}
+.cart-overlay {
+    position: fixed;
+    inset: 0;
+    background: #000b;
+    z-index: 3000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+.cart-overlay.open { display: flex; }
+.cart-panel {
+    width: 100%;
+    max-width: 520px;
+    max-height: 85vh;
+    overflow: auto;
+    background: #202020;
+    border: 2px solid var(--gold);
+    border-radius: 22px;
+    padding: 22px;
+    box-shadow: 0 20px 60px #0009;
+}
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid #D4AF6250;
+    padding-bottom: 12px;
+    margin-bottom: 15px;
+}
+.cart-header h2 { color: var(--gold); font-size: 23px; }
+.cart-close {
+    border: 0;
+    background: transparent;
+    color: var(--cream);
+    font-size: 28px;
+    cursor: pointer;
+}
+.cart-empty { color: #d0c5b2; text-align: center; padding: 25px 5px; }
+.cart-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    padding: 12px 0;
+    border-bottom: 1px dashed #D4AF6240;
+}
+.cart-row strong { color: var(--cream); display: block; }
+.cart-row small { color: var(--gold-light); display: block; margin-top: 4px; }
+.cart-actions { display: flex; align-items: center; gap: 7px; }
+.cart-actions button {
+    width: 29px;
+    height: 29px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    background: #292929;
+    color: var(--gold-light);
+    cursor: pointer;
+    font-weight: 900;
+}
+.cart-actions .remove-item {
+    border-color: #b94b4b;
+    color: #ff9a9a;
+}
+.cart-footer { margin-top: 18px; display: grid; gap: 10px; }
+.cart-note { color: #d0c5b2; font-size: 12px; }
+.cart-clear {
+    border: 0;
+    border-radius: 25px;
+    padding: 12px;
+    font-weight: 900;
+    cursor: pointer;
+    background: #393939;
+    color: var(--cream);
+}
+@media (max-width: 600px) {
+    .cart-floating { right: 15px; bottom: 17px; width: 56px; height: 56px; }
+    .cart-panel { padding: 17px; }
+    .add-cart-btn { padding: 6px 10px; }
 }
 
 </style>
@@ -1309,6 +1485,12 @@ target="_blank" rel="noopener" class="order-btn">
 جميع الحقوق محفوظة © ملك الجمبري
 </div>
 
+<div class="developer-credit">
+    <p class="developer-name">Radwa Nageh</p>
+    <p class="developer-title">مهندسة برمجيات</p>
+    <a class="developer-handle" href="https://wa.me/radwanageh" target="_blank" rel="noopener noreferrer">WhatsApp: @radwanageh</a>
+</div>
+
 </div>
 </footer>
 
@@ -1321,6 +1503,28 @@ rel="noopener"
 aria-label="تواصل عبر واتساب">
 <i class="fa-brands fa-whatsapp"></i>
 </a>
+
+
+<!-- سلة المشتريات -->
+<button class="cart-floating" id="cartToggle" aria-label="فتح سلة المشتريات" type="button">
+    <i class="fa-solid fa-basket-shopping"></i>
+    <span class="cart-count" id="cartCount">0</span>
+</button>
+
+<div class="cart-overlay" id="cartOverlay" aria-hidden="true">
+    <div class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+        <div class="cart-header">
+            <h2 id="cartTitle">🛒 سلة مشترياتك</h2>
+            <button class="cart-close" id="cartClose" type="button" aria-label="إغلاق">&times;</button>
+        </div>
+        <div id="cartItems">
+            <p class="cart-empty">السلة فاضية، اختار أكلك من المنيو ❤️</p>
+        </div>
+        <div class="cart-footer">
+            <button class="cart-clear" id="clearCart" type="button">إفراغ السلة</button>
+        </div>
+    </div>
+</div>
 
 <!-- BACK TO TOP -->
 
@@ -1361,8 +1565,119 @@ if ('IntersectionObserver' in window) {
     });
 }
 
+
+/* سلة مشتريات ملك الجمبري */
+(() => {
+    const cart = [];
+    const toggle = document.getElementById('cartToggle');
+    const overlay = document.getElementById('cartOverlay');
+    const closeBtn = document.getElementById('cartClose');
+    const itemsBox = document.getElementById('cartItems');
+    const countBox = document.getElementById('cartCount');
+
+    function openCart() {
+        overlay.classList.add('open');
+        overlay.setAttribute('aria-hidden', 'false');
+        renderCart();
+    }
+    function closeCart() {
+        overlay.classList.remove('open');
+        overlay.setAttribute('aria-hidden', 'true');
+    }
+
+    // إضافة زر لكل صنف في المنيو تلقائياً
+    document.querySelectorAll('.menu-item').forEach((row) => {
+        const nameEl = row.querySelector('.name');
+        const priceEl = row.querySelector('.price, .weights-detail');
+        if (!nameEl) return;
+
+        const addBtn = document.createElement('button');
+        addBtn.type = 'button';
+        addBtn.className = 'add-cart-btn';
+        addBtn.innerHTML = '<i class="fa-solid fa-plus"></i> أضف للسلة';
+        addBtn.addEventListener('click', () => {
+            const name = nameEl.textContent.trim();
+            const price = priceEl ? priceEl.textContent.replace(/\s+/g, ' ').trim() : 'السعر يحدد عند الطلب';
+            const existing = cart.find(item => item.name === name && item.price === price);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ name, price, quantity: 1 });
+            }
+            renderCart();
+            addBtn.innerHTML = '<i class="fa-solid fa-check"></i> تمت الإضافة';
+            setTimeout(() => addBtn.innerHTML = '<i class="fa-solid fa-plus"></i> أضف للسلة', 900);
+        });
+        row.appendChild(addBtn);
+    });
+
+    function renderCart() {
+        const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+        countBox.textContent = totalCount;
+
+        if (!cart.length) {
+            itemsBox.innerHTML = '<p class="cart-empty">السلة فاضية، اختار أكلك من المنيو ❤️</p>';
+            return;
+        }
+
+        itemsBox.innerHTML = cart.map((item, index) => `
+            <div class="cart-row">
+                <div>
+                    <strong>${escapeHTML(item.name)}</strong>
+                </div>
+                <div class="cart-actions">
+                    <button type="button" data-action="plus" data-index="${index}" aria-label="زيادة">+</button>
+                    <span>${item.quantity}</span>
+                    <button type="button" data-action="minus" data-index="${index}" aria-label="تقليل">−</button>
+                    <button type="button" class="remove-item" data-action="remove" data-index="${index}" aria-label="حذف">×</button>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function escapeHTML(value) {
+        return value.replace(/[&<>"']/g, char => ({
+            '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
+        }[char]));
+    }
+
+    itemsBox.addEventListener('click', (event) => {
+        const btn = event.target.closest('button[data-action]');
+        if (!btn) return;
+        const index = Number(btn.dataset.index);
+        const action = btn.dataset.action;
+        if (!cart[index]) return;
+
+        if (action === 'plus') cart[index].quantity += 1;
+        if (action === 'minus') {
+            cart[index].quantity -= 1;
+            if (cart[index].quantity <= 0) cart.splice(index, 1);
+        }
+        if (action === 'remove') cart.splice(index, 1);
+        renderCart();
+    });
+
+    toggle.addEventListener('click', openCart);
+    closeBtn.addEventListener('click', closeCart);
+    overlay.addEventListener('click', event => {
+        if (event.target === overlay) closeCart();
+    });
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') closeCart();
+    });
+
+    document.getElementById('clearCart').addEventListener('click', () => {
+        cart.length = 0;
+        renderCart();
+    });
+
+
+})();
+
 </script>
 
 </body>
 </html>
+
+
 
