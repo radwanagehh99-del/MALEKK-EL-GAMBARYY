@@ -1131,10 +1131,43 @@ footer a:hover {
     .add-cart-btn { padding: 6px 10px; }
 }
 
+
+/* تنبيه عدم وجود فروع أخرى */
+.branch-notice {
+    position: relative;
+    z-index: 2001;
+    width: 100%;
+    background: linear-gradient(135deg, #D4AF62, #F1D69A);
+    color: #171717;
+    text-align: center;
+    padding: 13px 10px;
+    font-size: 17px;
+    font-weight: 900;
+    border-bottom: 2px solid #A77C32;
+    box-shadow: 0 4px 15px #D4AF6240;
+}
+.branch-notice i {
+    margin-left: 8px;
+    font-size: 19px;
+}
+@media (max-width: 600px) {
+    .branch-notice {
+        font-size: 14px;
+        padding: 12px 6px;
+    }
+}
+
 </style>
 </head>
 
 <body>
+
+<!-- تنبيه مهم للزوار -->
+<div class="branch-notice">
+    <i class="fa-solid fa-circle-info"></i>
+    <span>تنويه هام: ليس للمحل فروع أخرى</span>
+</div>
+
 
 <!-- السمك والفقاعات -->
 
