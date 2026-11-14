@@ -1,1300 +1,141 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ملك الجمبري | المأكولات البحرية</title>
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
 <style>
-
-:root {
-    --black: #171717;
-    --dark: #202020;
-    --dark2: #292929;
-    --gold: #D4AF62;
-    --gold-light: #F1D69A;
-    --gold-dark: #A77C32;
-    --cream: #F4EEE3;
-    --white: #FFFFFF;
-    --text: #F4EEE3;
-}
-
-*,
-*::before,
-*::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Alexandria', sans-serif !important;
-    scroll-behavior: smooth;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    background:
-        radial-gradient(circle at 10% 20%, #D4AF6210, transparent 30%),
-        radial-gradient(circle at 90% 70%, #D4AF6208, transparent 30%),
-        var(--black);
-    color: var(--text);
-    overflow-x: hidden;
-    line-height: 1.8;
-    -webkit-font-smoothing: antialiased;
-}
-
-a {
-    text-decoration: none;
-}
-
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-}
-
-/* شريط التقدم */
-
-.progress {
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 4px;
-    width: 0;
-    background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
-    z-index: 3000;
-}
-
-/* السمك المتحرك */
-
-.fish-world {
-    position: fixed;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.swimming-fish {
-    position: absolute;
-    width: 130px;
-    height: 85px;
-    object-fit: contain;
-    opacity: .28;
-    filter: sepia(1) saturate(1.8) drop-shadow(0 5px 10px #D4AF6240);
-}
-
-.fish-one {
-    top: 16%;
-    left: -170px;
-    animation: swimRight 27s linear infinite;
-}
-
-.fish-two {
-    top: 47%;
-    right: -170px;
-    animation: swimLeft 31s linear infinite;
-}
-
-.fish-three {
-    top: 77%;
-    left: -190px;
-    width: 155px;
-    animation: swimRight 34s linear infinite 6s;
-}
-
-@keyframes swimRight {
-    0% { transform: translateX(0) translateY(0); }
-    25% { transform: translateX(28vw) translateY(-16px); }
-    50% { transform: translateX(58vw) translateY(12px); }
-    75% { transform: translateX(88vw) translateY(-12px); }
-    100% { transform: translateX(125vw) translateY(4px); }
-}
-
-@keyframes swimLeft {
-    0% { transform: translateX(0) scaleX(-1); }
-    25% { transform: translateX(-28vw) scaleX(-1) translateY(15px); }
-    50% { transform: translateX(-58vw) scaleX(-1) translateY(-12px); }
-    75% { transform: translateX(-88vw) scaleX(-1) translateY(10px); }
-    100% { transform: translateX(-125vw) scaleX(-1); }
-}
-
-/* الفقاعات */
-
-.bubble {
-    position: fixed;
-    bottom: -30px;
-    width: 13px;
-    height: 13px;
-    border: 2px solid #D4AF6260;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 1;
-    animation: bubbleRise 13s linear infinite;
-}
-
-.b1 { left: 12%; }
-.b2 { left: 34%; width: 8px; height: 8px; animation-delay: 3s; }
-.b3 { left: 68%; width: 17px; height: 17px; animation-delay: 6s; }
-.b4 { left: 88%; width: 10px; height: 10px; animation-delay: 2s; }
-
-@keyframes bubbleRise {
-    0% { transform: translateY(0); opacity: 0; }
-    15% { opacity: .65; }
-    100% { transform: translateY(-110vh) translateX(35px); opacity: 0; }
-}
-
-nav, section, footer {
-    position: relative;
-    z-index: 2;
-}
-
-/* NAVBAR */
-
-nav {
-    background: rgba(23,23,23,.97);
-    backdrop-filter: blur(15px);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    padding: 15px 0;
-    box-shadow: 0 5px 25px #00000060;
-    border-bottom: 2px solid #D4AF6250;
-}
-
-.nav-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.logo {
-    font-size: 26px;
-    font-weight: 900;
-    color: var(--gold);
-    text-shadow: 2px 3px 8px #D4AF6240;
-    white-space: nowrap;
-}
-
-.logo span {
-    color: var(--gold-light);
-}
-
-nav ul {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    justify-content: center;
-    gap: 12px 16px;
-}
-
-nav ul a {
-    color: var(--cream);
-    font-size: 13px;
-    font-weight: 800;
-    transition: .3s;
-    white-space: nowrap;
-}
-
-nav ul a:hover {
-    color: var(--gold);
-}
-
-.order-btn,
-.main-btn {
-    display: inline-block;
-    color: var(--black);
-    background: linear-gradient(135deg, var(--gold), var(--gold-light));
-    padding: 12px 20px;
-    border-radius: 35px;
-    font-weight: 900;
-    font-size: 14px;
-    box-shadow: 0 8px 20px #D4AF6230;
-    transition: .35s;
-    position: relative;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-.order-btn:hover,
-.main-btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px #D4AF6250;
-}
-
-.main-btn::before,
-.order-btn::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: #ffffff50;
-    transform: skewX(-25deg);
-    transition: .5s;
-}
-
-.main-btn:hover::before,
-.order-btn:hover::before {
-    left: 120%;
-}
-
-/* HERO */
-
-.hero {
-    min-height: 600px;
-    display: flex;
-    align-items: center;
-    padding: 75px 0;
-    position: relative;
-    overflow: hidden;
-    background:
-        radial-gradient(circle at 15% 30%, #D4AF6218, transparent 35%),
-        linear-gradient(120deg, #171717, #292929, #1C1C1C);
-    border-bottom: 1px solid #D4AF6230;
-}
-
-.hero-content {
-    display: grid;
-    grid-template-columns: 1.2fr .8fr;
-    align-items: center;
-    gap: 50px;
-    position: relative;
-    z-index: 2;
-}
-
-.hero-text {
-    animation: heroIn 1s ease both;
-}
-
-.hero-text small {
-    color: var(--gold);
-    font-weight: 900;
-    font-size: 18px;
-}
-
-.hero h1 {
-    color: var(--cream);
-    font-size: clamp(38px, 6vw, 68px);
-    line-height: 1.5;
-    font-weight: 900;
-    text-shadow: 2px 4px 10px #00000060;
-}
-
-.hero h1 span {
-    color: var(--gold);
-}
-
-.hero p {
-    color: #D0C5B2;
-    font-size: 19px;
-    line-height: 2;
-    font-weight: 500;
-    margin: 15px 0 25px;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.hero-photo {
-    height: 400px;
-    max-width: 360px;
-    width: 100%;
-    margin: auto;
-    border: 8px solid var(--gold);
-    border-radius: 45% 45% 25px 25px;
-    overflow: hidden;
-    box-shadow: 0 25px 60px #D4AF6230;
-    animation: photoFloat 5s ease-in-out infinite;
-}
-
-.hero-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* INTRO */
-
-.intro {
-    text-align: center;
-    padding: 75px 0 40px;
-    background: #1D1D1D;
-}
-
-.intro h2 {
-    font-size: 36px;
-    font-weight: 900;
-    color: var(--gold);
-    margin-bottom: 12px;
-}
-
-.intro p {
-    color: #C9BFAF;
-    font-size: 18px;
-    line-height: 2;
-    font-weight: 500;
-}
-
-/* TITLES */
-
-.section-title {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.section-title h2 {
-    font-size: 38px;
-    font-weight: 900;
-    color: var(--gold);
-}
-
-.section-title span {
-    color: var(--gold-light);
-}
-
-.section-title p {
-    color: #BEB3A2;
-    font-size: 17px;
-    margin-top: 8px;
-}
-
-/* GALLERY */
-
-.gallery {
-    padding: 65px 0 85px;
-    background: #171717;
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 18px;
-}
-
-.gallery-card {
-    height: 290px;
-    overflow: hidden;
-    border-radius: 25px;
-    background: #292929;
-    border: 4px solid var(--gold);
-    box-shadow: 0 10px 30px #00000050;
-    transition: .45s;
-    position: relative;
-}
-
-.gallery-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: .7s;
-}
-
-.gallery-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 15px 35px #D4AF6240;
-}
-
-.gallery-card:hover img {
-    transform: scale(1.12);
-}
-
-.gallery-card::after {
-    content: "🦐 ملك الجمبري";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    padding: 15px 0;
-    text-align: center;
-    color: var(--gold-light);
-    font-weight: 900;
-    font-size: 18px;
-    background: linear-gradient(transparent, #000000DD);
-    opacity: 0;
-    transition: .4s;
-}
-
-.gallery-card:hover::after {
-    opacity: 1;
-}
-
-/* MENU */
-
-.menu-section {
-    background:
-        radial-gradient(circle at top right, #D4AF6210, transparent 35%),
-        #202020;
-    padding: 85px 0;
-    scroll-margin-top: 150px;
-}
-
-.menu-heading {
-    text-align: center;
-    margin-bottom: 45px;
-}
-
-.menu-heading h2 {
-    font-size: 42px;
-    font-weight: 900;
-    color: var(--gold);
-}
-
-.menu-heading p {
-    color: #C5B9A7;
-    font-size: 18px;
-    font-weight: 500;
-    margin-top: 10px;
-}
-
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-}
-
-.menu-box {
-    background:
-        linear-gradient(#292929, #292929) padding-box,
-        linear-gradient(135deg, #A77C32, #F1D69A, #D4AF62) border-box;
-    border: 2px solid transparent;
-    border-radius: 25px;
-    padding: 27px;
-    box-shadow: 0 10px 30px #00000035;
-    position: relative;
-    overflow: hidden;
-    transition: .4s;
-    scroll-margin-top: 150px;
-}
-
-.menu-box:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 18px 35px #D4AF6230;
-}
-
-.menu-box h3 {
-    font-size: 27px;
-    font-weight: 900;
-    color: var(--gold);
-    border-bottom: 2px solid #D4AF6250;
-    padding-bottom: 13px;
-    margin-bottom: 15px;
-}
-
-.menu-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    padding: 13px 8px;
-    border-bottom: 1px dashed #D4AF6230;
-    border-radius: 10px;
-    transition: .3s;
-}
-
-.menu-item:hover {
-    background: #D4AF6212;
-    padding-right: 17px;
-}
-
-.menu-item .name {
-    font-weight: 700;
-    font-size: 17px;
-    color: var(--cream);
-    flex: 1;
-    transition: .3s;
-}
-
-.menu-item:hover .name {
-    color: var(--gold);
-}
-
-.price {
-    color: var(--gold-light);
-    font-weight: 900;
-    white-space: normal;
-    font-size: 16px;
-    background: #D4AF6220;
-    padding: 5px 12px;
-    border-radius: 20px;
-    text-align: center;
-    border: 1px solid #D4AF6240;
-}
-
-/* تفاصيل أوزان الأسماك */
-
-.weights-detail {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 6px;
-    max-width: 75%;
-}
-
-.weight {
-    display: inline-block;
-    background: #D4AF6220;
-    color: var(--gold-light);
-    font-size: 14px;
-    font-weight: 800;
-    padding: 5px 9px;
-    border-radius: 15px;
-    white-space: nowrap;
-    border: 1px solid #D4AF6240;
-}
-
-.menu-note {
-    background: #D4AF621A;
-    color: var(--gold-light);
-    border: 1px solid #D4AF6250;
-    border-radius: 12px;
-    padding: 12px;
-    margin-top: 15px;
-    font-size: 15px;
-    font-weight: 800;
-}
-
-/* SPECIAL */
-
-.special {
-    padding: 80px 0;
-    background: #171717;
-}
-
-.special-card {
-    text-align: center;
-    color: var(--black);
-    padding: 55px 20px;
-    border-radius: 35px;
-    background:
-        radial-gradient(circle at top right, #ffffff40, transparent 40%),
-        linear-gradient(120deg, #A77C32, #D4AF62, #F1D69A);
-    box-shadow: 0 20px 45px #D4AF6230;
-    position: relative;
-    overflow: hidden;
-}
-
-.special-card::before,
-.special-card::after {
-    content: "🫧";
-    position: absolute;
-    font-size: 65px;
-    opacity: .2;
-}
-
-.special-card::before {
-    top: 15px;
-    left: 30px;
-}
-
-.special-card::after {
-    bottom: 15px;
-    right: 30px;
-}
-
-.special-card h2 {
-    font-size: 38px;
-    font-weight: 900;
-    color: #171717;
-}
-
-.special-card p {
-    font-size: 19px;
-    line-height: 2;
-    font-weight: 600;
-    margin: 15px 0 25px;
-    color: #302719;
-}
-
-.special-card a {
-    display: inline-block;
-    background: #171717;
-    color: var(--gold-light);
-    padding: 13px 35px;
-    border-radius: 35px;
-    font-size: 17px;
-    font-weight: 900;
-    transition: .3s;
-}
-
-.special-card a:hover {
-    background: #393939;
-    color: white;
-    transform: scale(1.07);
-}
-
-
-/* Developer credit */
-.developer-credit {
-    margin-top: 18px;
-    padding: 15px 12px 4px;
-    border-top: 1px solid #D4AF6240;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 6px 14px;
-    text-align: center;
-}
-.developer-credit .developer-name {
-    margin: 0;
-    color: #E5C477;
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-shadow: 0 0 12px #D4AF6245;
-    direction: ltr;
-}
-.developer-credit .developer-title {
-    flex-basis: 100%;
-    margin: 0;
-    color: #F5E8C9;
-    font-size: 12px;
-    font-weight: 600;
-}
-.developer-credit .developer-handle {
-    display: inline-block;
-    margin: 0;
-    color: #D4AF62;
-    font-size: 13px;
-    direction: ltr;
-    text-decoration: none;
-    transition: .25s;
-}
-.developer-credit .developer-handle:hover {
-    color: #F5E8C9;
-    text-decoration: underline;
-}
-
-/* FOOTER */
-
-footer {
-    background: linear-gradient(135deg, #111111, #252525);
-    color: white;
-    padding: 55px 0 20px;
-    border-top: 2px solid #D4AF6250;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    padding-bottom: 35px;
-}
-
-footer h3 {
-    color: var(--gold);
-    margin-bottom: 15px;
-    font-size: 24px;
-    font-weight: 900;
-}
-
-footer p {
-    font-size: 17px;
-    line-height: 2.2;
-    color: #D0C5B2;
-    font-weight: 500;
-}
-
-footer a {
-    color: #E4D7C2;
-    display: block;
-    margin: 12px 0;
-    font-size: 18px;
-    font-weight: 700;
-    transition: .3s;
-}
-
-footer a:hover {
-    color: var(--gold);
-    transform: translateX(-5px);
-}
-
-.footer-bottom {
-    border-top: 1px solid #D4AF6240;
-    padding-top: 20px;
-    text-align: center;
-    color: #C9BFAF;
-    font-size: 15px;
-    font-weight: 500;
-}
-
-/* WHATSAPP */
-
-.whatsapp-float {
-    position: fixed;
-    bottom: 25px;
-    left: 25px;
-    width: 58px;
-    height: 58px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: #25D366;
-    color: white;
-    font-size: 29px;
-    z-index: 999;
-    box-shadow: 0 8px 25px #25D36660;
-    transition: .35s;
-    animation: whatsappPulse 2s infinite;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.15);
-}
-
-@keyframes whatsappPulse {
-    0%, 100% { box-shadow: 0 8px 25px #25D36660; }
-    50% { box-shadow: 0 8px 35px #25D36690; }
-}
-
-/* BACK TO TOP */
-
-.back-to-top {
-    position: fixed;
-    bottom: 95px;
-    left: 32px;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
-    color: var(--black);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 998;
-    box-shadow: 0 5px 20px #D4AF6240;
-    transition: .3s;
-}
-
-.back-to-top:hover {
-    background: var(--gold-light);
-    transform: translateY(-5px);
-}
-
-/* REVEAL */
-
-.reveal {
-    opacity: 0;
-    transform: translateY(45px);
-    transition: .8s ease;
-}
-
-.reveal.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-@keyframes heroIn {
-    from { opacity: 0; transform: translateX(55px); }
-    to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes photoFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 1100px) {
-    .nav-content {
-        justify-content: center;
-    }
-
-    nav ul {
-        order: 3;
-        width: 100%;
-    }
-}
-
-@media (max-width: 850px) {
-    nav ul {
-        display: flex;
-        width: 100%;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        justify-content: flex-start;
-        padding: 10px 2px;
-        scrollbar-width: none;
-        order: 3;
-    }
-
-    nav ul::-webkit-scrollbar {
-        display: none;
-    }
-
-    .hero-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-
-    .hero-photo {
-        height: 330px;
-        max-width: 290px;
-    }
-
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .gallery-card {
-        height: 240px;
-    }
-
-    .menu-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 600px) {
-    .hero {
-        padding: 55px 0;
-    }
-
-    .hero p {
-        font-size: 16px;
-    }
-
-    .gallery-grid {
-        gap: 12px;
-    }
-
-    .gallery-card {
-        border-width: 3px;
-        border-radius: 18px;
-    }
-
-    .menu-box {
-        border-radius: 20px;
-    }
-
-    .menu-item {
-        align-items: flex-start;
-    }
-
-    .menu-item .name {
-        font-size: 15px;
-    }
-
-    .price {
-        font-size: 14px;
-        padding: 5px 8px;
-    }
-
-    .weights-detail {
-        max-width: 70%;
-    }
-
-    .weight {
-        font-size: 12px;
-    }
-
-    .special-card {
-        padding: 40px 18px;
-    }
-
-    .special-card h2 {
-        font-size: 28px;
-    }
-
-    .special-card p {
-        font-size: 16px;
-    }
-
-    .whatsapp-float {
-        width: 52px;
-        height: 52px;
-        bottom: 18px;
-        left: 18px;
-    }
-
-    .back-to-top {
-        bottom: 80px;
-        left: 22px;
-    }
-}
-
-@media (max-width: 420px) {
-    .logo {
-        font-size: 21px;
-    }
-
-    .order-btn {
-        padding: 10px 15px;
-        font-size: 13px;
-    }
-
-    .gallery-card {
-        height: 190px;
-    }
-
-    .menu-box {
-        padding: 17px;
-    }
-
-    .menu-item .name,
-    .price {
-        font-size: 13px;
-    }
-
-    .menu-heading h2 {
-        font-size: 30px;
-    }
-
-    .hero h1 {
-        font-size: 37px;
-    }
-
-    .intro h2,
-    .section-title h2 {
-        font-size: 29px;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: .01ms !important;
-    }
-
-    .reveal {
-        opacity: 1;
-        transform: none;
-    }
-
-    .fish-world,
-    .bubble {
-        display: none;
-    }
-
-    .whatsapp-float {
-        animation: none;
-    }
-}
-
-
-
-/* سلة المشتريات */
-.menu-item {
-    flex-wrap: wrap;
-}
-.add-cart-btn {
-    border: 1px solid var(--gold);
-    background: linear-gradient(135deg, var(--gold), var(--gold-light));
-    color: var(--black);
-    border-radius: 20px;
-    padding: 7px 13px;
-    font-size: 12px;
-    font-weight: 900;
-    cursor: pointer;
-    transition: .25s;
-    white-space: nowrap;
-}
-.add-cart-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 14px #D4AF6240;
-}
-.cart-floating {
-    position: fixed;
-    right: 22px;
-    bottom: 22px;
-    z-index: 2000;
-    width: 62px;
-    height: 62px;
-    border: 2px solid var(--gold-light);
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--gold-dark), var(--gold-light));
-    color: var(--black);
-    font-size: 24px;
-    cursor: pointer;
-    box-shadow: 0 8px 25px #D4AF6260;
-}
-.cart-count {
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    min-width: 23px;
-    height: 23px;
-    padding: 0 5px;
-    border-radius: 20px;
-    background: #c62828;
-    color: white;
-    font-size: 12px;
-    display: grid;
-    place-items: center;
-    border: 2px solid var(--black);
-}
-.cart-overlay {
-    position: fixed;
-    inset: 0;
-    background: #000b;
-    z-index: 3000;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    padding: 15px;
-}
-.cart-overlay.open { display: flex; }
-.cart-panel {
-    width: 100%;
-    max-width: 520px;
-    max-height: 85vh;
-    overflow: auto;
-    background: #202020;
-    border: 2px solid var(--gold);
-    border-radius: 22px;
-    padding: 22px;
-    box-shadow: 0 20px 60px #0009;
-}
-.cart-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    border-bottom: 1px solid #D4AF6250;
-    padding-bottom: 12px;
-    margin-bottom: 15px;
-}
-.cart-header h2 { color: var(--gold); font-size: 23px; }
-.cart-close {
-    border: 0;
-    background: transparent;
-    color: var(--cream);
-    font-size: 28px;
-    cursor: pointer;
-}
-.cart-empty { color: #d0c5b2; text-align: center; padding: 25px 5px; }
-.cart-row {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 10px;
-    padding: 12px 0;
-    border-bottom: 1px dashed #D4AF6240;
-}
-.cart-row strong { color: var(--cream); display: block; }
-.cart-row small { color: var(--gold-light); display: block; margin-top: 4px; }
-.cart-actions { display: flex; align-items: center; gap: 7px; }
-.cart-actions button {
-    width: 29px;
-    height: 29px;
-    border: 1px solid var(--gold);
-    border-radius: 50%;
-    background: #292929;
-    color: var(--gold-light);
-    cursor: pointer;
-    font-weight: 900;
-}
-.cart-actions .remove-item {
-    border-color: #b94b4b;
-    color: #ff9a9a;
-}
-.cart-footer { margin-top: 18px; display: grid; gap: 10px; }
-.cart-note { color: #d0c5b2; font-size: 12px; }
-.cart-clear {
-    border: 0;
-    border-radius: 25px;
-    padding: 12px;
-    font-weight: 900;
-    cursor: pointer;
-    background: #393939;
-    color: var(--cream);
-}
-@media (max-width: 600px) {
-    .cart-floating { right: 15px; bottom: 17px; width: 56px; height: 56px; }
-    .cart-panel { padding: 17px; }
-    .add-cart-btn { padding: 6px 10px; }
-}
-
-
-/* تنبيه عدم وجود فروع أخرى */
-.branch-notice {
-    position: relative;
-    z-index: 2001;
-    width: 100%;
-    background: linear-gradient(135deg, #D4AF62, #F1D69A);
-    color: #171717;
-    text-align: center;
-    padding: 13px 10px;
-    font-size: 17px;
-    font-weight: 900;
-    border-bottom: 2px solid #A77C32;
-    box-shadow: 0 4px 15px #D4AF6240;
-}
-.branch-notice i {
-    margin-left: 8px;
-    font-size: 19px;
-}
-@media (max-width: 600px) {
-    .branch-notice {
-        font-size: 14px;
-        padding: 12px 6px;
-    }
-}
-
+:root{--black:#171717;--dark:#202020;--dark2:#292929;--gold:#D4AF62;--gold-light:#F1D69A;--gold-dark:#A77C32;--cream:#F4EEE3;--white:#fff;--text:#F4EEE3}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Alexandria',sans-serif;scroll-behavior:smooth}
+body{background:radial-gradient(circle at 10% 20%,#D4AF6210,transparent 30%),var(--black);color:var(--text);overflow-x:hidden;line-height:1.8}
+a{text-decoration:none}.container{width:90%;max-width:1200px;margin:auto}
+.progress{position:fixed;top:0;right:0;height:4px;width:0;background:linear-gradient(90deg,var(--gold-dark),var(--gold-light));z-index:3000}
+.fish-world{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.swimming-fish{position:absolute;width:130px;height:85px;object-fit:contain;opacity:.28;filter:sepia(1) saturate(1.8)}
+.fish-one{top:16%;left:-170px;animation:swimRight 27s linear infinite}
+.fish-two{top:47%;right:-170px;animation:swimLeft 31s linear infinite}
+.fish-three{top:77%;left:-190px;width:155px;animation:swimRight 34s linear infinite 6s}
+@keyframes swimRight{to{transform:translateX(125vw)}}@keyframes swimLeft{to{transform:translateX(-125vw) scaleX(-1)}}
+.bubble{position:fixed;bottom:-30px;width:13px;height:13px;border:2px solid #D4AF6260;border-radius:50%;pointer-events:none;z-index:1;animation:bubbleRise 13s linear infinite}
+.b1{left:12%}.b2{left:34%;width:8px;height:8px;animation-delay:3s}.b3{left:68%;width:17px;height:17px;animation-delay:6s}.b4{left:88%;width:10px;height:10px;animation-delay:2s}
+@keyframes bubbleRise{0%{transform:translateY(0);opacity:0}15%{opacity:.65}100%{transform:translateY(-110vh) translateX(35px);opacity:0}}
+nav,section,footer{position:relative;z-index:2}
+.branch-notice{position:relative;z-index:2001;background:linear-gradient(135deg,#D4AF62,#F1D69A);color:#171717;text-align:center;padding:13px 10px;font-size:17px;font-weight:900;border-bottom:2px solid #A77C32}
+nav{background:#171717f7;backdrop-filter:blur(15px);position:sticky;top:0;z-index:1000;padding:15px 0;box-shadow:0 5px 25px #0009;border-bottom:2px solid #D4AF6250}
+.nav-content{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
+.logo{font-size:26px;font-weight:900;color:var(--gold);white-space:nowrap}.logo span{color:var(--gold-light)}
+nav ul{display:flex;flex-wrap:wrap;list-style:none;justify-content:center;gap:12px 16px}
+nav ul a{color:var(--cream);font-size:13px;font-weight:800;white-space:nowrap}nav ul a:hover{color:var(--gold)}
+.order-btn,.main-btn{display:inline-block;color:var(--black);background:linear-gradient(135deg,var(--gold),var(--gold-light));padding:12px 20px;border-radius:35px;font-weight:900;font-size:14px;transition:.35s;white-space:nowrap}
+.order-btn:hover,.main-btn:hover{transform:translateY(-4px);box-shadow:0 12px 25px #D4AF6250}
+.hero{min-height:600px;display:flex;align-items:center;padding:75px 0;background:radial-gradient(circle at 15% 30%,#D4AF6218,transparent 35%),linear-gradient(120deg,#171717,#292929,#1c1c1c);border-bottom:1px solid #D4AF6230}
+.hero-content{display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:50px;position:relative;z-index:2}
+.hero-text{animation:heroIn 1s ease both}.hero-text small{color:var(--gold);font-weight:900;font-size:18px}
+.hero h1{color:var(--cream);font-size:clamp(38px,6vw,68px);line-height:1.5;font-weight:900}.hero h1 span{color:var(--gold)}
+.hero p{color:#D0C5B2;font-size:19px;line-height:2;font-weight:500;margin:15px 0 25px}
+.hero-buttons{display:flex;gap:15px;flex-wrap:wrap}
+.hero-photo{height:400px;max-width:360px;width:100%;margin:auto;border:5px solid var(--gold);border-radius:35px;overflow:hidden;box-shadow:0 25px 60px #D4AF6230;animation:photoFloat 5s ease-in-out infinite}
+.logo-photo{background:radial-gradient(circle,#3b3020,#202020 65%,#171717);display:flex;align-items:center;justify-content:center;padding:20px}
+.restaurant-logo{width:100%;height:100%;border:2px solid #D4AF6280;border-radius:25px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:radial-gradient(circle,#302719,#171717);padding:15px}
+.logo-shrimp{font-size:90px;filter:drop-shadow(0 5px 12px #D4AF6260)}
+.restaurant-logo h2{color:var(--gold-light);font-size:clamp(25px,4vw,36px);font-weight:900;text-shadow:0 0 15px #D4AF6260}
+.logo-line{width:75%;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:15px 0}
+.restaurant-logo p{color:white;font-size:clamp(20px,3vw,27px);font-weight:900;margin:0}
+.logo-stars{color:var(--gold);font-size:24px;margin-top:15px;letter-spacing:8px}
+.intro{text-align:center;padding:75px 0 40px;background:#1d1d1d}.intro h2{font-size:36px;color:var(--gold);margin-bottom:12px}.intro p{color:#C9BFAF;font-size:18px;line-height:2}
+.section-title{text-align:center;margin-bottom:40px}.section-title h2{font-size:38px;color:var(--gold)}.section-title span{color:var(--gold-light)}.section-title p{color:#BEB3A2;font-size:17px;margin-top:8px}
+.gallery{padding:65px 0 85px;background:#171717}.gallery-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.gallery-card{height:290px;overflow:hidden;border-radius:25px;background:#292929;border:4px solid var(--gold);box-shadow:0 10px 30px #0008;transition:.45s;position:relative}
+.gallery-card img{width:100%;height:100%;object-fit:cover;transition:.7s}.gallery-card:hover{transform:translateY(-12px)}.gallery-card:hover img{transform:scale(1.12)}
+.gallery-card:after{content:"🦐 ملك الجمبري";position:absolute;bottom:0;right:0;width:100%;padding:15px 0;text-align:center;color:var(--gold-light);font-weight:900;font-size:18px;background:linear-gradient(transparent,#000d);opacity:0;transition:.4s}.gallery-card:hover:after{opacity:1}
+.menu-section{background:radial-gradient(circle at top right,#D4AF6210,transparent 35%),#202020;padding:85px 0;scroll-margin-top:150px}
+.menu-heading{text-align:center;margin-bottom:45px}.menu-heading h2{font-size:42px;color:var(--gold)}.menu-heading p{color:#C5B9A7;font-size:18px;margin-top:10px}
+.menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:25px}
+.menu-box{background:linear-gradient(#292929,#292929) padding-box,linear-gradient(135deg,#A77C32,#F1D69A,#D4AF62) border-box;border:2px solid transparent;border-radius:25px;padding:27px;box-shadow:0 10px 30px #0006;transition:.4s;scroll-margin-top:150px}
+.menu-box:hover{transform:translateY(-5px)}.menu-box h3{font-size:27px;color:var(--gold);border-bottom:2px solid #D4AF6250;padding-bottom:13px;margin-bottom:15px}
+.menu-item{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:13px 8px;border-bottom:1px dashed #D4AF6230;border-radius:10px}
+.menu-item:hover{background:#D4AF6212}.menu-item .name{font-weight:700;font-size:17px;color:var(--cream);flex:1}
+.price{color:var(--gold-light);font-weight:900;font-size:16px;background:#D4AF6220;padding:5px 12px;border-radius:20px;text-align:center;border:1px solid #D4AF6240}
+.weights-detail{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:6px;max-width:75%}
+.weight{background:#D4AF6220;color:var(--gold-light);font-size:14px;font-weight:800;padding:5px 9px;border-radius:15px;border:1px solid #D4AF6240;white-space:nowrap}
+.menu-note{background:#D4AF621A;color:var(--gold-light);border:1px solid #D4AF6250;border-radius:12px;padding:12px;margin-top:15px;font-size:15px;font-weight:800}
+.add-cart-btn{border:1px solid var(--gold);background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--black);border-radius:20px;padding:7px 13px;font-size:12px;font-weight:900;cursor:pointer;white-space:nowrap}
+.special{padding:80px 0;background:#171717}.special-card{text-align:center;color:var(--black);padding:55px 20px;border-radius:35px;background:linear-gradient(120deg,#A77C32,#D4AF62,#F1D69A);box-shadow:0 20px 45px #D4AF6230}
+.special-card h2{font-size:38px;color:#171717}.special-card p{font-size:19px;line-height:2;font-weight:600;margin:15px 0 25px;color:#302719}
+.special-card a{display:inline-block;background:#171717;color:var(--gold-light);padding:13px 35px;border-radius:35px;font-size:17px;font-weight:900}
+footer{background:linear-gradient(135deg,#111,#252525);color:white;padding:55px 0 20px;border-top:2px solid #D4AF6250}
+.footer-content{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;padding-bottom:35px}
+footer h3{color:var(--gold);margin-bottom:15px;font-size:24px}footer p{font-size:17px;line-height:2.2;color:#D0C5B2}
+footer a{color:#E4D7C2;display:block;margin:12px 0;font-size:18px;font-weight:700}footer a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid #D4AF6240;padding-top:20px;text-align:center;color:#C9BFAF;font-size:15px}
+.developer-credit{margin-top:18px;padding:15px 12px 4px;border-top:1px solid #D4AF6240;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 14px;text-align:center}
+.developer-name{color:#E5C477!important;font-family:Georgia,serif!important;font-size:14px!important;font-weight:700}.developer-title{flex-basis:100%;color:#F5E8C9;font-size:12px!important}.developer-handle{color:#D4AF62;font-size:13px;direction:ltr}
+.whatsapp-float{position:fixed;bottom:25px;left:25px;width:58px;height:58px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:#25D366;color:white;font-size:29px;z-index:999;box-shadow:0 8px 25px #25D36660}
+.back-to-top{position:fixed;bottom:95px;left:32px;width:45px;height:45px;border-radius:50%;background:linear-gradient(135deg,var(--gold-dark),var(--gold-light));color:var(--black);display:flex;align-items:center;justify-content:center;z-index:998}
+.cart-floating{position:fixed;right:22px;bottom:22px;z-index:2000;width:62px;height:62px;border:2px solid var(--gold-light);border-radius:50%;background:linear-gradient(135deg,var(--gold-dark),var(--gold-light));color:var(--black);font-size:24px;cursor:pointer;box-shadow:0 8px 25px #D4AF6260}
+.cart-count{position:absolute;top:-5px;left:-5px;min-width:23px;height:23px;padding:0 5px;border-radius:20px;background:#c62828;color:white;font-size:12px;display:grid;place-items:center;border:2px solid var(--black)}
+.cart-overlay{position:fixed;inset:0;background:#000b;z-index:3000;display:none;align-items:center;justify-content:center;padding:15px}.cart-overlay.open{display:flex}
+.cart-panel{width:100%;max-width:520px;max-height:85vh;overflow:auto;background:#202020;border:2px solid var(--gold);border-radius:22px;padding:22px}
+.cart-header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #D4AF6250;padding-bottom:12px;margin-bottom:15px}
+.cart-header h2{color:var(--gold);font-size:23px}.cart-close{border:0;background:transparent;color:var(--cream);font-size:28px;cursor:pointer}
+.cart-empty{color:#d0c5b2;text-align:center;padding:25px 5px}.cart-row{display:grid;grid-template-columns:1fr auto;gap:10px;padding:12px 0;border-bottom:1px dashed #D4AF6240}
+.cart-row strong{color:var(--cream);display:block}.cart-actions{display:flex;align-items:center;gap:7px}
+.cart-actions button{width:29px;height:29px;border:1px solid var(--gold);border-radius:50%;background:#292929;color:var(--gold-light);cursor:pointer}
+.cart-actions .remove-item{border-color:#b94b4b;color:#ff9a9a}.cart-footer{margin-top:18px;display:grid;gap:10px}
+.cart-clear{border:0;border-radius:25px;padding:12px;font-weight:900;cursor:pointer;background:#393939;color:var(--cream)}
+.reveal{opacity:0;transform:translateY(35px);transition:.8s}.reveal.show{opacity:1;transform:translateY(0)}
+@keyframes heroIn{from{opacity:0;transform:translateX(55px)}to{opacity:1;transform:translateX(0)}}
+@keyframes photoFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
+@media(max-width:1100px){.nav-content{justify-content:center}nav ul{order:3;width:100%}}
+@media(max-width:850px){nav ul{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;width:100%;order:3;padding:10px 2px}.hero-content{grid-template-columns:1fr;text-align:center}.hero-buttons{justify-content:center}.hero-photo{height:330px;max-width:290px}.gallery-grid{grid-template-columns:repeat(2,1fr)}.gallery-card{height:240px}.menu-grid,.footer-content{grid-template-columns:1fr}}
+@media(max-width:600px){.hero{padding:55px 0}.hero p{font-size:16px}.gallery-grid{gap:12px}.gallery-card{height:190px;border-width:3px;border-radius:18px}.menu-box{padding:17px}.menu-item .name{font-size:15px}.price{font-size:14px;padding:5px 8px}.weights-detail{max-width:70%}.weight{font-size:12px}.special-card{padding:40px 18px}.special-card h2{font-size:28px}.special-card p{font-size:16px}.branch-notice{font-size:14px}.cart-floating{right:15px;bottom:17px;width:56px;height:56px}.cart-panel{padding:17px}.add-cart-btn{padding:6px 10px}}
+@media(max-width:420px){.logo{font-size:21px}.order-btn{padding:10px 15px;font-size:13px}.menu-heading h2{font-size:30px}.hero h1{font-size:37px}.intro h2,.section-title h2{font-size:29px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}.reveal{opacity:1;transform:none}.fish-world,.bubble{display:none}}
 </style>
 </head>
-
 <body>
-
-<!-- تنبيه مهم للزوار -->
-<div class="branch-notice">
-    <i class="fa-solid fa-circle-info"></i>
-    <span>تنويه هام: ليس للمحل فروع أخرى</span>
-</div>
-
-
-<!-- السمك والفقاعات -->
-
+<div class="branch-notice"><i class="fa-solid fa-circle-info"></i> تنويه هام: ليس للمحل فروع أخرى</div>
 <div class="fish-world">
 <img class="swimming-fish fish-one" src="https://pngimg.com/uploads/fish/fish_PNG1151.png" alt="">
 <img class="swimming-fish fish-two" src="https://pngimg.com/uploads/fish/fish_PNG1151.png" alt="">
 <img class="swimming-fish fish-three" src="https://pngimg.com/uploads/fish/fish_PNG1151.png" alt="">
 </div>
-
-<div class="bubble b1"></div>
-<div class="bubble b2"></div>
-<div class="bubble b3"></div>
-<div class="bubble b4"></div>
-
+<div class="bubble b1"></div><div class="bubble b2"></div><div class="bubble b3"></div><div class="bubble b4"></div>
 <div class="progress" id="progress"></div>
-
-<!-- NAVBAR -->
-
-<nav>
-<div class="container nav-content">
-
+<nav><div class="container nav-content">
 <div class="logo">ملك <span>الجمبري</span> 🦐</div>
-
 <ul>
-<li><a href="#rice">الأرز</a></li>
-<li><a href="#sandwiches">السندوتشات</a></li>
-<li><a href="#meals">الوجبات</a></li>
-<li><a href="#fish">الأسماك</a></li>
-<li><a href="#pasta">المكرونات</a></li>
-<li><a href="#casseroles">الطواجن</a></li>
-<li><a href="#grilled">المشويات</a></li>
-<li><a href="#molokhia">الملوخية</a></li>
-<li><a href="#salads">السلطات</a></li>
-<li><a href="#extras">الإضافات</a></li>
+<li><a href="#rice">الأرز</a></li><li><a href="#sandwiches">السندوتشات</a></li><li><a href="#meals">الوجبات</a></li><li><a href="#fish">الأسماك</a></li><li><a href="#pasta">المكرونات</a></li><li><a href="#casseroles">الطواجن</a></li><li><a href="#grilled">المشويات</a></li><li><a href="#molokhia">الملوخية</a></li><li><a href="#salads">السلطات</a></li><li><a href="#extras">الإضافات</a></li>
 </ul>
-
-<a href="https://wa.me/201111142178"
-target="_blank" rel="noopener" class="order-btn">
-<i class="fa-brands fa-whatsapp"></i>
-01111142178
-</a>
-
-</div>
-</nav>
-
-<!-- HERO -->
-
-<section class="hero" id="home">
-<div class="container hero-content">
-
-<div class="hero-text">
-
-<small>🐟 أهلاً بيكم في عالم المأكولات البحرية</small>
-
-<h1>
-ملك الجمبري<br>
-<span>حكاية طعم ميتنسيش!</span>
-</h1>
-
-<p>
-من أول لقمة هتعرف الفرق! بنقدملكم أشهى المأكولات البحرية
-بطعم مميز وجودة تستاهل التجربة. مستنيينكم تنورونا ❤️
-</p>
-
-<div class="hero-buttons">
-<a href="#menu" class="main-btn">اكتشف المنيو</a>
-<a href="#contact" class="order-btn">تواصل معانا</a>
-</div>
-
-</div>
-
-<div class="hero-photo">
-<img src="photo6.jpeg" alt="صاحب المطعم">
-</div>
-
-</div>
-</section>
-
-<!-- INTRO -->
-
-<section class="intro reveal">
-<div class="container">
-<h2>أهلاً بيكم في ملك الجمبري 🦐</h2>
-<p>
-اختيارك للطعم المميز يبدأ من هنا.
-استمتعوا بأشهى أصناف السمك والجمبري والمشويات.
-</p>
-</div>
-</section>
-
-<!-- GALLERY -->
-
-<section class="gallery" id="gallery">
-<div class="container">
-
-<div class="section-title reveal">
-<h2>من مطعمنا <span>إليكم ❤️</span></h2>
-<p>كل صورة وراها حكاية طعم مميز</p>
-</div>
-
+<a href="https://wa.me/201111142178" target="_blank" rel="noopener" class="order-btn"><i class="fa-brands fa-whatsapp"></i> 01111142178</a>
+</div></nav>
+<section class="hero" id="home"><div class="container hero-content">
+<div class="hero-text"><small>🐟 أهلاً بيكم في عالم المأكولات البحرية</small>
+<h1>ملك الجمبري<br><span>حكاية طعم ميتنسيش!</span></h1>
+<p>من أول لقمة هتعرف الفرق! بنقدملكم أشهى المأكولات البحرية بطعم مميز وجودة تستاهل التجربة. مستنيينكم تنورونا ❤️</p>
+<div class="hero-buttons"><a href="#menu" class="main-btn">اكتشف المنيو</a><a href="#contact" class="order-btn">تواصل معانا</a></div></div>
+<!-- تم استبدال صورة صاحب المطعم بلوجو كبير -->
+<div class="hero-photo logo-photo"><div class="restaurant-logo">
+<span class="logo-shrimp">🦐</span><h2>ملك الجمبري</h2><span class="logo-line"></span>
+<p>كُل ودلّع نفسك</p><span class="logo-stars">✦ ✦ ✦</span>
+</div></div>
+</div></section>
+<section class="intro reveal"><div class="container"><h2>أهلاً بيكم في ملك الجمبري 🦐</h2><p>اختيارك للطعم المميز يبدأ من هنا. استمتعوا بأشهى أصناف السمك والجمبري والمشويات.</p></div></section>
+<section class="gallery" id="gallery"><div class="container">
+<div class="section-title reveal"><h2>من مطعمنا <span>إليكم ❤️</span></h2><p>كل صورة وراها حكاية طعم مميز</p></div>
 <div class="gallery-grid">
 <div class="gallery-card reveal"><img src="photo1.jpeg" alt="أكل المطعم 1"></div>
 <div class="gallery-card reveal"><img src="photo2.jpeg" alt="أكل المطعم 2"></div>
 <div class="gallery-card reveal"><img src="photo3.jpeg" alt="أكل المطعم 3"></div>
 <div class="gallery-card reveal"><img src="photo4.jpeg" alt="أكل المطعم 4"></div>
 <div class="gallery-card reveal"><img src="photo5.jpeg" alt="أكل المطعم 5"></div>
-</div>
-
-</div>
-</section>
-
-<!-- MENU -->
-
-<section class="menu-section" id="menu">
-<div class="container">
-
-<div class="menu-heading reveal">
-<h2>🍤 منيو ملك الجمبري</h2>
-<p>اختار أكلك المفضل واستمتع بالطعم</p>
-</div>
-
+</div></div></section>
+<section class="menu-section" id="menu"><div class="container">
+<div class="menu-heading reveal"><h2>🍤 منيو ملك الجمبري</h2><p>اختار أكلك المفضل واستمتع بالطعم</p></div>
 <div class="menu-grid">
-
-<!-- أطباق الأرز -->
-
-<div class="menu-box reveal" id="rice">
-<h3>🍚 أطباق الأرز</h3>
+<div class="menu-box reveal" id="rice"><h3>🍚 أطباق الأرز</h3>
 <div class="menu-item"><span class="name">طبق أرز سادة</span><span class="price">15\25</span></div>
 <div class="menu-item"><span class="name">طبق أرز بالجمبري صغير</span><span class="price">65</span></div>
 <div class="menu-item"><span class="name">طبق أرز بالجمبري كبير</span><span class="price">85 \100</span></div>
@@ -1303,125 +144,42 @@ target="_blank" rel="noopener" class="order-btn">
 <div class="menu-item"><span class="name">أرز بالجمبري + فيليه + سبيط (ميكس)</span><span class="price">100\130</span></div>
 <div class="menu-item"><span class="name">طبق أرز بالفيليه</span><span class="price">65\85</span></div>
 <div class="menu-item"><span class="name">طبق أرز بالسبيط</span><span class="price">85</span></div>
-<div class="menu-item"><span class="name">أرز بالجمبري والسبيط كبير</span><span class="price">100\85</span></div>
-</div>
-
-<!-- السندوتشات -->
-
-<div class="menu-box reveal" id="sandwiches">
-<h3>🥪 السندوتشات</h3>
+<div class="menu-item"><span class="name">أرز بالجمبري والسبيط كبير</span><span class="price">100\85</span></div></div>
+<div class="menu-box reveal" id="sandwiches"><h3>🥪 السندوتشات</h3>
 <div class="menu-item"><span class="name">رغيف جمبري صغير</span><span class="price">35</span></div>
 <div class="menu-item"><span class="name">رغيف جمبري كبير</span><span class="price">50 \60</span></div>
 <div class="menu-item"><span class="name">رغيف فيليه</span><span class="price">35</span></div>
 <div class="menu-item"><span class="name">رغيف سبيط</span><span class="price">45 \50</span></div>
-<div class="menu-item"><span class="name">رغيف مشكل</span><span class="price">50 \60</span></div>
-</div>
-
-<!-- الوجبات -->
-
-<div class="menu-box reveal" id="meals">
-<h3>🍽️ الوجبات</h3>
+<div class="menu-item"><span class="name">رغيف مشكل</span><span class="price">50 \60</span></div></div>
+<div class="menu-box reveal" id="meals"><h3>🍽️ الوجبات</h3>
 <div class="menu-item"><span class="name">ثمن جمبري صغير + أرز + سلطة + عيش</span><span class="price">80 ج</span></div>
 <div class="menu-item"><span class="name">ثمن جمبري كبير + أرز + سلطة + عيش</span><span class="price">130 ج</span></div>
 <div class="menu-item"><span class="name">ثمن فيليه + أرز + سلطة + عيش</span><span class="price">65 ج</span></div>
 <div class="menu-item"><span class="name">ثمن سبيط + أرز + سلطة + عيش</span><span class="price">105 ج</span></div>
 <div class="menu-item"><span class="name">وجبة بلطي مقلي / مشوي + أرز + سلطة + عيش</span><span class="price">90 ج</span></div>
 <div class="menu-item"><span class="name">شوربة عادية / مخليّة</span><span class="price">85 / 105 ج</span></div>
-<div class="menu-item"><span class="name">مياه شوربة</span><span class="price">15ج</span></div>
-</div>
-
-<!-- الأسماك -->
-
-<div class="menu-box reveal" id="fish">
-<h3>🐟 الأسماك</h3>
-
-<div class="menu-item">
-<span class="name">بلطي</span>
-<span class="price">حسب سعر اليوم</span>
-</div>
-
-<div class="menu-item">
-<span class="name">مكرونة</span>
-<span class="price">حسب سعر اليوم</span>
-</div>
-
-<div class="menu-item">
-<span class="name">فيليه</span>
-<span class="weights-detail">
-<span class="weight">(ثمن: 50)</span>
-<span class="weight">(ربع: 100)</span>
-<span class="weight">(نص: 200)</span>
-<span class="weight">(كيلو: 400ج)</span>
-</span>
-</div>
-
-<div class="menu-item">
-<span class="name">سبيط</span>
-<span class="weights-detail">
-<span class="weight">(ثمن: 90)</span>
-<span class="weight">(ربع: 180)</span>
-<span class="weight">(نص: 350)</span>
-<span class="weight">(كيلو:700)</span>
-</span>
-</div>
-
-<div class="menu-item">
-<span class="name">كابوريا</span>
-<span class="weights-detail">
-<span class="weight">(ربع:65)</span>
-<span class="weight">(نص: 125)</span>
-<span class="weight">(كيلو: 250)</span>
-</span>
-</div>
-
-<div class="menu-item">
-<span class="name">جمبري صغير</span>
-<span class="weights-detail">
-<span class="weight">(ثمن:65)</span>
-<span class="weight">(ربع: 125)</span>
-<span class="weight">(نص: 250)</span>
-<span class="weight">(كيلو: 500)</span>
-</span>
-</div>
-
-<div class="menu-item">
-<span class="name">جمبري كبير</span>
-<span class="weights-detail">
-<span class="weight">(ثمن: 115)</span>
-<span class="weight">(ربع:225)</span>
-<span class="weight">(نص:450)</span>
-<span class="weight">(كيلو:900)</span>
-</span>
-</div>
-
-<div class="menu-note">أسعار الأسماك حسب سعر اليوم والكميات.</div>
-</div>
-
-<!-- المكرونات -->
-
-<div class="menu-box reveal" id="pasta">
-<h3>🍝 المكرونات</h3>
+<div class="menu-item"><span class="name">مياه شوربة</span><span class="price">15ج</span></div></div>
+<div class="menu-box reveal" id="fish"><h3>🐟 الأسماك</h3>
+<div class="menu-item"><span class="name">بلطي</span><span class="price">حسب سعر اليوم</span></div>
+<div class="menu-item"><span class="name">مكرونة</span><span class="price">حسب سعر اليوم</span></div>
+<div class="menu-item"><span class="name">فيليه</span><span class="weights-detail"><span class="weight">(ثمن: 50)</span><span class="weight">(ربع: 100)</span><span class="weight">(نص: 200)</span><span class="weight">(كيلو: 400ج)</span></span></div>
+<div class="menu-item"><span class="name">سبيط</span><span class="weights-detail"><span class="weight">(ثمن: 90)</span><span class="weight">(ربع: 180)</span><span class="weight">(نص: 350)</span><span class="weight">(كيلو:700)</span></span></div>
+<div class="menu-item"><span class="name">كابوريا</span><span class="weights-detail"><span class="weight">(ربع:65)</span><span class="weight">(نص: 125)</span><span class="weight">(كيلو: 250)</span></span></div>
+<div class="menu-item"><span class="name">جمبري صغير</span><span class="weights-detail"><span class="weight">(ثمن:65)</span><span class="weight">(ربع: 125)</span><span class="weight">(نص: 250)</span><span class="weight">(كيلو: 500)</span></span></div>
+<div class="menu-item"><span class="name">جمبري كبير</span><span class="weights-detail"><span class="weight">(ثمن: 115)</span><span class="weight">(ربع:225)</span><span class="weight">(نص:450)</span><span class="weight">(كيلو:900)</span></span></div>
+<div class="menu-note">أسعار الأسماك حسب سعر اليوم والكميات.</div></div>
+<div class="menu-box reveal" id="pasta"><h3>🍝 المكرونات</h3>
 <div class="menu-item"><span class="name">طاجن مكرونة أحمر صوص بالجمبري</span><span class="price">130 / 160 ج</span></div>
 <div class="menu-item"><span class="name">طاجن مكرونة أبيض صوص بالجمبري</span><span class="price">130 / 160 ج</span></div>
-<div class="menu-item"><span class="name">طاجن مكرونة سي فود مشكل</span><span class="price">130 / 160 ج</span></div>
-</div>
-
-<!-- الطواجن -->
-
-<div class="menu-box reveal" id="casseroles">
-<h3>🥘 الطواجن</h3>
+<div class="menu-item"><span class="name">طاجن مكرونة سي فود مشكل</span><span class="price">130 / 160 ج</span></div></div>
+<div class="menu-box reveal" id="casseroles"><h3>🥘 الطواجن</h3>
 <div class="menu-item"><span class="name">طاجن جمبري بقشره</span><span class="price">(ربع225 , نص450)</span></div>
 <div class="menu-item"><span class="name">طاجن جمبري لحم</span><span class="price">(ربع225 , نص450)</span></div>
 <div class="menu-item"><span class="name">طاجن فيليه</span><span class="price">(ربع 100, نص 200)</span></div>
 <div class="menu-item"><span class="name">طاجن سبيط مشوي</span><span class="price">(ربع 180 , نص 360)</span></div>
 <div class="menu-item"><span class="name">طاجن ميكس لحم</span><span class="price">(ربع 225 , نص 450)</span></div>
-<div class="menu-item"><span class="name">طاجن ثعابين</span><span class="price">سعر اليوم</span></div>
-</div>
-
-<!-- المشويات -->
-
-<div class="menu-box reveal" id="grilled">
-<h3>🔥 المشويات</h3>
+<div class="menu-item"><span class="name">طاجن ثعابين</span><span class="price">سعر اليوم</span></div></div>
+<div class="menu-box reveal" id="grilled"><h3>🔥 المشويات</h3>
 <div class="menu-item"><span class="name">جمبري مشوي كبير بالخلطة</span><span class="price">(ربع 225, نص 450, كيلو 900)</span></div>
 <div class="menu-item"><span class="name">جمبري مشوي جامبو بالخلطة</span><span class="price">(ربع:370, نص:750, كيلو:1500)</span></div>
 <div class="menu-item"><span class="name">جمبري مشوي خلطة</span><span class="price">(ربع 225, نص 450, كيلو 900)</span></div>
@@ -1429,288 +187,62 @@ target="_blank" rel="noopener" class="order-btn">
 <div class="menu-item"><span class="name">جمبري / سبيط مشوي فاهيتا لحم</span><span class="price">(ربع:220, نص:450, كيلو:900)</span></div>
 <div class="menu-item"><span class="name">جندوفلي إسكندراني</span><span class="price">(ربع:50, نص:100, كيلو:200)</span></div>
 <div class="menu-item"><span class="name">كابوريا مشوي جريل</span><span class="price">(ربع:65, نص:125, كيلو:250)</span></div>
-<div class="menu-item"><span class="name">فيليه مشوي كباب</span><span class="price">(ربع:100, نص:200, كيلو:400)</span></div>
-</div>
-
-<!-- الملوخية -->
-
-<div class="menu-box reveal" id="molokhia">
-<h3>🥣 الملوخية</h3>
+<div class="menu-item"><span class="name">فيليه مشوي كباب</span><span class="price">(ربع:100, نص:200, كيلو:400)</span></div></div>
+<div class="menu-box reveal" id="molokhia"><h3>🥣 الملوخية</h3>
 <div class="menu-item"><span class="name">ملوخية بالجمبري لحم</span><span class="price">85 / 105 ج</span></div>
 <div class="menu-item"><span class="name">شوربة حمراء جمبري لحم</span><span class="price">100 ج</span></div>
-<div class="menu-item"><span class="name">شوربة حمراء جمبري بقشره</span><span class="price">120 ج</span></div>
-</div>
-
-<!-- السلطات والإضافات -->
-
-<div class="menu-box reveal" id="salads">
-<h3>🥗 السلطات والإضافات</h3>
+<div class="menu-item"><span class="name">شوربة حمراء جمبري بقشره</span><span class="price">120 ج</span></div></div>
+<div class="menu-box reveal" id="salads"><h3>🥗 السلطات والإضافات</h3>
 <div class="menu-item"><span class="name">سلطة بلدي</span><span class="price">15 ج</span></div>
 <div class="menu-item"><span class="name">بابا غنوج</span><span class="price">15 ج</span></div>
 <div class="menu-item"><span class="name">طماطم متبلة</span><span class="price">15 ج</span></div>
 <div class="menu-item"><span class="name">مياه معدنية</span><span class="price">10 / 15 ج</span></div>
-<div class="menu-item"><span class="name">كانز</span><span class="price">20 ج</span></div>
-</div>
-
-<!-- إضافات الأرز -->
-
-<div class="menu-box reveal" id="extras">
-<h3>🍚 إضافات الأرز</h3>
+<div class="menu-item"><span class="name">كانز</span><span class="price">20 ج</span></div></div>
+<div class="menu-box reveal" id="extras"><h3>🍚 إضافات الأرز</h3>
 <div class="menu-item"><span class="name">طبق أرز سي فود</span><span class="price">120 ج</span></div>
-<div class="menu-item"><span class="name">طبق أرز خلطة</span><span class="price">30 ج</span></div>
-</div>
-
-<!-- سندوتشات إضافية -->
-
-<div class="menu-box reveal" id="extra-sandwiches">
-<h3>🥪 سندوتشات إضافية</h3>
+<div class="menu-item"><span class="name">طبق أرز خلطة</span><span class="price">30 ج</span></div></div>
+<div class="menu-box reveal" id="extra-sandwiches"><h3>🥪 سندوتشات إضافية</h3>
 <div class="menu-item"><span class="name">رغيف حواوشي</span><span class="price">50 \ 60 ج</span></div>
 <div class="menu-item"><span class="name">رغيف حواوشي ميكس</span><span class="price">50 \60 ج</span></div>
 <div class="menu-item"><span class="name">رغيف جمبري مشوي</span><span class="price">50 \60 ج</span></div>
 <div class="menu-item"><span class="name">رغيف فيليه مشوي</span><span class="price">50 \ 60 ج</span></div>
 <div class="menu-item"><span class="name">رغيف سبيط مشوي</span><span class="price">50 \60 ج</span></div>
 <div class="menu-item"><span class="name">وجبة ميكس جريل مشوي</span><span class="price">200 ج</span></div>
-<div class="menu-item"><span class="name">وجبة جمبري بقشره مشوي</span><span class="price">225ج</span></div>
-</div>
-
-</div>
-</div>
-</section>
-
-<!-- SPECIAL -->
-
-<section class="special">
-<div class="container">
-<div class="special-card reveal">
-<h2>🐟 الطعم اللي يستاهل التجربة!</h2>
-<p>اختار أكلك المفضل من منيو ملك الجمبري، وإحنا مستنيين زيارتكم ❤️</p>
-<a href="#contact">تواصل معانا</a>
-</div>
-</div>
-</section>
-
-<!-- FOOTER -->
-
-<footer id="contact">
-<div class="container">
-
+<div class="menu-item"><span class="name">وجبة جمبري بقشره مشوي</span><span class="price">225ج</span></div></div>
+</div></div></section>
+<section class="special"><div class="container"><div class="special-card reveal">
+<h2>🐟 الطعم اللي يستاهل التجربة!</h2><p>اختار أكلك المفضل من منيو ملك الجمبري، وإحنا مستنيين زيارتكم ❤️</p><a href="#contact">تواصل معانا</a>
+</div></div></section>
+<footer id="contact"><div class="container">
 <div class="footer-content">
-
-<div>
-<h3>ملك الجمبري 🦐</h3>
-<p>أشهى المأكولات البحرية بطعم مميز وجودة تستاهل التجربة.</p>
+<div><h3>ملك الجمبري 🦐</h3><p>أشهى المأكولات البحرية بطعم مميز وجودة تستاهل التجربة.</p></div>
+<div><h3>تواصل معانا</h3><a href="tel:01110899667">01110899667</a><a href="tel:01224381230">01224381230</a></div>
+<div><h3>عنوان المطعم</h3><p>55 شارع مصطفى حافظ عين شمس الشرقية أمام فندق السلام</p></div>
 </div>
-
-<div>
-<h3>تواصل معانا</h3>
-<a href="tel:01110899667">01110899667</a>
-<a href="tel:01224381230">01224381230</a>
-</div>
-
-<div>
-<h3>عنوان المطعم</h3>
-<p> 55 شارع مصطفي حافظ عين شمس الشرقيه امام فندق السلام</p>
-</div>
-
-</div>
-
-<div class="footer-bottom">
-جميع الحقوق محفوظة © ملك الجمبري
-</div>
-
-<div class="developer-credit">
-    <p class="developer-name">Radwa Nageh</p>
-    <p class="developer-title">مهندسة برمجيات</p>
-    <a class="developer-handle" href="https://wa.me/radwanageh" target="_blank" rel="noopener noreferrer">WhatsApp: @radwanageh</a>
-</div>
-
-</div>
-</footer>
-
-<!-- WHATSAPP -->
-
-<a class="whatsapp-float"
-href="https://wa.me/201111142178"
-target="_blank"
-rel="noopener"
-aria-label="تواصل عبر واتساب">
-<i class="fa-brands fa-whatsapp"></i>
-</a>
-
-
-<!-- سلة المشتريات -->
-<button class="cart-floating" id="cartToggle" aria-label="فتح سلة المشتريات" type="button">
-    <i class="fa-solid fa-basket-shopping"></i>
-    <span class="cart-count" id="cartCount">0</span>
-</button>
-
-<div class="cart-overlay" id="cartOverlay" aria-hidden="true">
-    <div class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
-        <div class="cart-header">
-            <h2 id="cartTitle">🛒 سلة مشترياتك</h2>
-            <button class="cart-close" id="cartClose" type="button" aria-label="إغلاق">&times;</button>
-        </div>
-        <div id="cartItems">
-            <p class="cart-empty">السلة فاضية، اختار أكلك من المنيو ❤️</p>
-        </div>
-        <div class="cart-footer">
-            <button class="cart-clear" id="clearCart" type="button">إفراغ السلة</button>
-        </div>
-    </div>
-</div>
-
-<!-- BACK TO TOP -->
-
-<a href="#home" class="back-to-top" aria-label="العودة لأعلى">
-<i class="fa-solid fa-arrow-up"></i>
-</a>
-
+<div class="footer-bottom">جميع الحقوق محفوظة © ملك الجمبري</div>
+<div class="developer-credit"><p class="developer-name">Radwa Nageh</p><p class="developer-title">مهندسة برمجيات</p><a class="developer-handle" href="https://wa.me/radwanageh" target="_blank" rel="noopener noreferrer">WhatsApp: @radwanageh</a></div>
+</div></footer>
+<a class="whatsapp-float" href="https://wa.me/201111142178" target="_blank" rel="noopener" aria-label="تواصل عبر واتساب"><i class="fa-brands fa-whatsapp"></i></a>
+<button class="cart-floating" id="cartToggle" aria-label="فتح سلة المشتريات" type="button"><i class="fa-solid fa-basket-shopping"></i><span class="cart-count" id="cartCount">0</span></button>
+<div class="cart-overlay" id="cartOverlay" aria-hidden="true"><div class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+<div class="cart-header"><h2 id="cartTitle">🛒 سلة مشترياتك</h2><button class="cart-close" id="cartClose" type="button" aria-label="إغلاق">&times;</button></div>
+<div id="cartItems"><p class="cart-empty">السلة فاضية، اختار أكلك من المنيو ❤️</p></div>
+<div class="cart-footer"><button class="cart-clear" id="clearCart" type="button">إفراغ السلة</button></div>
+</div></div>
+<a href="#home" class="back-to-top" aria-label="العودة لأعلى"><i class="fa-solid fa-arrow-up"></i></a>
 <script>
-
-/* شريط تقدم الصفحة */
-
-window.addEventListener('scroll',()=>{
-    const total = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = total > 0 ? (window.scrollY / total) * 100 : 0;
-    document.getElementById('progress').style.width = progress + '%';
-});
-
-/* ظهور العناصر عند التمرير */
-
-if ('IntersectionObserver' in window) {
-
-    const revealObserver = new IntersectionObserver(entries=>{
-        entries.forEach(entry=>{
-            if(entry.isIntersecting){
-                entry.target.classList.add('show');
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    },{threshold:.12});
-
-    document.querySelectorAll('.reveal').forEach(el=>{
-        revealObserver.observe(el);
-    });
-
-} else {
-    document.querySelectorAll('.reveal').forEach(el=>{
-        el.classList.add('show');
-    });
-}
-
-
-/* سلة مشتريات ملك الجمبري */
-(() => {
-    const cart = [];
-    const toggle = document.getElementById('cartToggle');
-    const overlay = document.getElementById('cartOverlay');
-    const closeBtn = document.getElementById('cartClose');
-    const itemsBox = document.getElementById('cartItems');
-    const countBox = document.getElementById('cartCount');
-
-    function openCart() {
-        overlay.classList.add('open');
-        overlay.setAttribute('aria-hidden', 'false');
-        renderCart();
-    }
-    function closeCart() {
-        overlay.classList.remove('open');
-        overlay.setAttribute('aria-hidden', 'true');
-    }
-
-    // إضافة زر لكل صنف في المنيو تلقائياً
-    document.querySelectorAll('.menu-item').forEach((row) => {
-        const nameEl = row.querySelector('.name');
-        const priceEl = row.querySelector('.price, .weights-detail');
-        if (!nameEl) return;
-
-        const addBtn = document.createElement('button');
-        addBtn.type = 'button';
-        addBtn.className = 'add-cart-btn';
-        addBtn.innerHTML = '<i class="fa-solid fa-plus"></i> أضف للسلة';
-        addBtn.addEventListener('click', () => {
-            const name = nameEl.textContent.trim();
-            const price = priceEl ? priceEl.textContent.replace(/\s+/g, ' ').trim() : 'السعر يحدد عند الطلب';
-            const existing = cart.find(item => item.name === name && item.price === price);
-            if (existing) {
-                existing.quantity += 1;
-            } else {
-                cart.push({ name, price, quantity: 1 });
-            }
-            renderCart();
-            addBtn.innerHTML = '<i class="fa-solid fa-check"></i> تمت الإضافة';
-            setTimeout(() => addBtn.innerHTML = '<i class="fa-solid fa-plus"></i> أضف للسلة', 900);
-        });
-        row.appendChild(addBtn);
-    });
-
-    function renderCart() {
-        const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
-        countBox.textContent = totalCount;
-
-        if (!cart.length) {
-            itemsBox.innerHTML = '<p class="cart-empty">السلة فاضية، اختار أكلك من المنيو ❤️</p>';
-            return;
-        }
-
-        itemsBox.innerHTML = cart.map((item, index) => `
-            <div class="cart-row">
-                <div>
-                    <strong>${escapeHTML(item.name)}</strong>
-                </div>
-                <div class="cart-actions">
-                    <button type="button" data-action="plus" data-index="${index}" aria-label="زيادة">+</button>
-                    <span>${item.quantity}</span>
-                    <button type="button" data-action="minus" data-index="${index}" aria-label="تقليل">−</button>
-                    <button type="button" class="remove-item" data-action="remove" data-index="${index}" aria-label="حذف">×</button>
-                </div>
-            </div>
-        `).join('');
-    }
-
-    function escapeHTML(value) {
-        return value.replace(/[&<>"']/g, char => ({
-            '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
-        }[char]));
-    }
-
-    itemsBox.addEventListener('click', (event) => {
-        const btn = event.target.closest('button[data-action]');
-        if (!btn) return;
-        const index = Number(btn.dataset.index);
-        const action = btn.dataset.action;
-        if (!cart[index]) return;
-
-        if (action === 'plus') cart[index].quantity += 1;
-        if (action === 'minus') {
-            cart[index].quantity -= 1;
-            if (cart[index].quantity <= 0) cart.splice(index, 1);
-        }
-        if (action === 'remove') cart.splice(index, 1);
-        renderCart();
-    });
-
-    toggle.addEventListener('click', openCart);
-    closeBtn.addEventListener('click', closeCart);
-    overlay.addEventListener('click', event => {
-        if (event.target === overlay) closeCart();
-    });
-    document.addEventListener('keydown', event => {
-        if (event.key === 'Escape') closeCart();
-    });
-
-    document.getElementById('clearCart').addEventListener('click', () => {
-        cart.length = 0;
-        renderCart();
-    });
-
-
+window.addEventListener('scroll',()=>{const total=document.documentElement.scrollHeight-window.innerHeight;document.getElementById('progress').style.width=(total>0?window.scrollY/total*100:0)+'%'});
+if('IntersectionObserver'in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('show');observer.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el))}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('show'))}
+(()=>{
+const cart=[],toggle=document.getElementById('cartToggle'),overlay=document.getElementById('cartOverlay'),closeBtn=document.getElementById('cartClose'),itemsBox=document.getElementById('cartItems'),countBox=document.getElementById('cartCount');
+function openCart(){overlay.classList.add('open');overlay.setAttribute('aria-hidden','false');renderCart()}
+function closeCart(){overlay.classList.remove('open');overlay.setAttribute('aria-hidden','true')}
+document.querySelectorAll('.menu-item').forEach(row=>{const nameEl=row.querySelector('.name'),priceEl=row.querySelector('.price,.weights-detail');if(!nameEl)return;const btn=document.createElement('button');btn.type='button';btn.className='add-cart-btn';btn.innerHTML='<i class="fa-solid fa-plus"></i> أضف للسلة';btn.addEventListener('click',()=>{const name=nameEl.textContent.trim(),price=priceEl?priceEl.textContent.replace(/\s+/g,' ').trim():'السعر يحدد عند الطلب';const old=cart.find(item=>item.name===name&&item.price===price);if(old)old.quantity++;else cart.push({name,price,quantity:1});renderCart();btn.innerHTML='<i class="fa-solid fa-check"></i> تمت الإضافة';setTimeout(()=>btn.innerHTML='<i class="fa-solid fa-plus"></i> أضف للسلة',900)});row.appendChild(btn)});
+function escapeHTML(value){return value.replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[char]))}
+function renderCart(){countBox.textContent=cart.reduce((sum,item)=>sum+item.quantity,0);if(!cart.length){itemsBox.innerHTML='<p class="cart-empty">السلة فاضية، اختار أكلك من المنيو ❤️</p>';return}itemsBox.innerHTML=cart.map((item,index)=>`<div class="cart-row"><div><strong>${escapeHTML(item.name)}</strong><small>${escapeHTML(item.price)}</small></div><div class="cart-actions"><button type="button" data-action="plus" data-index="${index}">+</button><span>${item.quantity}</span><button type="button" data-action="minus" data-index="${index}">−</button><button type="button" class="remove-item" data-action="remove" data-index="${index}">×</button></div></div>`).join('')}
+itemsBox.addEventListener('click',event=>{const btn=event.target.closest('button[data-action]');if(!btn)return;const index=Number(btn.dataset.index),action=btn.dataset.action;if(!cart[index])return;if(action==='plus')cart[index].quantity++;if(action==='minus'){cart[index].quantity--;if(cart[index].quantity<=0)cart.splice(index,1)}if(action==='remove')cart.splice(index,1);renderCart()});
+toggle.addEventListener('click',openCart);closeBtn.addEventListener('click',closeCart);overlay.addEventListener('click',event=>{if(event.target===overlay)closeCart()});document.addEventListener('keydown',event=>{if(event.key==='Escape')closeCart()});document.getElementById('clearCart').addEventListener('click',()=>{cart.length=0;renderCart()});
 })();
-
 </script>
-
 </body>
 </html>
-
-
-
